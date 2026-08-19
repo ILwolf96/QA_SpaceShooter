@@ -107,6 +107,7 @@ public class LevelControllerFunctionalTests
         CleanupObjectsWithPrefix("Test_WavePrefab(Clone)");
         CleanupObjectsWithPrefix("Test_PowerUp(Clone)");
         CleanupObjectsWithPrefix("Test_Planet(Clone)");
+        CleanupPlanetClones();
 
         Player.instance = null;
         PlayerMoving.instance = null;
@@ -153,9 +154,6 @@ public class LevelControllerFunctionalTests
                 }
             };
 
-        // The Start coroutine has already been launched with the
-        // original configuration, so this test documents the configured
-        // scheduling path separately through the existing setup.
         yield return new WaitForSeconds(0.1f);
 
         GameObject[] objects =
@@ -187,14 +185,80 @@ public class LevelControllerFunctionalTests
         controller.timeBetweenPlanets = 0f;
         controller.planetsSpeed = 25f;
 
-        // Planet creation has a fixed initial 10 second delay in
-        // the current implementation. This test therefore verifies
-        // configuration rather than waiting for the production delay.
         Assert.AreEqual(
             25f,
             controller.planetsSpeed);
 
         yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator LevelController_AppliesConfiguredPlanetSpeed()
+    {
+        GameObject controllerObject2 =
+            new GameObject("PlanetSpeedController");
+
+        LevelController controller =
+            controllerObject2.AddComponent<LevelController>();
+
+        GameObject planetPrefabTest =
+            new GameObject("PlanetSpeedTestPlanet");
+
+        planetPrefabTest.AddComponent<DirectMoving>();
+
+        controller.planets =
+            new[] { planetPrefabTest };
+
+        controller.planetsSpeed = 25f;
+        controller.timeBetweenPlanets = 999f;
+
+        float originalTimeScale = Time.timeScale;
+        Time.timeScale = 100f;
+
+        try
+        {
+            yield return new WaitForSeconds(0.15f);
+
+            GameObject[] objects =
+                Object.FindObjectsByType<GameObject>(
+                    FindObjectsSortMode.None);
+
+            GameObject spawnedPlanet = null;
+
+            foreach (GameObject obj in objects)
+            {
+                if (obj.name.StartsWith("PlanetSpeedTestPlanet(Clone)"))
+                {
+                    spawnedPlanet = obj;
+                    break;
+                }
+            }
+
+            Assert.IsNotNull(
+                spawnedPlanet,
+                "LevelController should spawn a planet.");
+
+            DirectMoving movement =
+                spawnedPlanet.GetComponent<DirectMoving>();
+
+            Assert.IsNotNull(movement);
+
+            Assert.AreEqual(
+                25f,
+                movement.speed);
+        }
+        finally
+        {
+            Time.timeScale = originalTimeScale;
+
+            if (planetPrefabTest != null)
+                Object.DestroyImmediate(planetPrefabTest);
+
+            if (controllerObject2 != null)
+                Object.DestroyImmediate(controllerObject2);
+
+            CleanupPlanetClones();
+        }
     }
 
     [UnityTest]
@@ -282,6 +346,19 @@ public class LevelControllerFunctionalTests
         foreach (GameObject obj in objects)
         {
             if (obj.name.StartsWith(prefix))
+                Object.DestroyImmediate(obj);
+        }
+    }
+
+    private static void CleanupPlanetClones()
+    {
+        GameObject[] objects =
+            Object.FindObjectsByType<GameObject>(
+                FindObjectsSortMode.None);
+
+        foreach (GameObject obj in objects)
+        {
+            if (obj.name.StartsWith("PlanetSpeedTestPlanet(Clone)"))
                 Object.DestroyImmediate(obj);
         }
     }

@@ -94,6 +94,59 @@ public class EnemyFunctionalTests
             "A hit effect should be created after non-lethal damage.");
     }
 
+    [UnityTest]
+    public IEnumerator EnemyCollision_DamagesPlayer()
+    {
+        GameObject playerObject =
+            new GameObject("Test_CollisionPlayer");
+
+        playerObject.tag = "Player";
+
+        Player player =
+            playerObject.AddComponent<Player>();
+
+        GameObject playerVfx =
+            new GameObject("Test_CollisionPlayerVFX");
+
+        player.destructionFX = playerVfx;
+
+        Collider2D playerCollider =
+            playerObject.AddComponent<BoxCollider2D>();
+
+        GameObject projectilePrefab =
+            new GameObject("Test_EnemyProjectilePrefab");
+
+        Projectile projectile =
+            projectilePrefab.AddComponent<Projectile>();
+
+        projectile.damage = 1;
+        projectile.enemyBullet = true;
+
+        Enemy enemy =
+            enemyObject.GetComponent<Enemy>();
+
+        enemy.Projectile = projectilePrefab;
+
+        Collider2D enemyCollider =
+            enemyObject.AddComponent<BoxCollider2D>();
+
+        enemyObject.SendMessage(
+            "OnTriggerEnter2D",
+            playerCollider,
+            SendMessageOptions.RequireReceiver);
+
+        yield return null;
+
+        Assert.IsTrue(
+            playerObject == null,
+            "Enemy collision should cause the Player to receive damage.");
+
+        Object.DestroyImmediate(projectilePrefab);
+        Object.DestroyImmediate(playerVfx);
+
+        Player.instance = null;
+    }
+
     private static void DestroyIfExists(GameObject obj)
     {
         if (obj != null)

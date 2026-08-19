@@ -57,4 +57,33 @@ public class PlayerRegressionTests
             playerObject == null,
             "Current game behavior destroys the Player when damage is received.");
     }
+
+    [UnityTest]
+    public IEnumerator Player_GetDamage_CreatesDestructionVFX()
+    {
+        Player player = playerObject.GetComponent<Player>();
+
+        player.GetDamage(1);
+
+        yield return null;
+
+        GameObject[] objects =
+            Object.FindObjectsByType<GameObject>(
+                FindObjectsSortMode.None);
+
+        bool vfxCreated = false;
+
+        foreach (GameObject obj in objects)
+        {
+            if (obj.name.StartsWith("Test_Player_DestructionFX"))
+            {
+                vfxCreated = true;
+                break;
+            }
+        }
+
+        Assert.IsTrue(
+            vfxCreated,
+            "Player destruction should instantiate the configured destruction VFX.");
+    }
 }

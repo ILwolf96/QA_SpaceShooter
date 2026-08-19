@@ -159,6 +159,30 @@ public class PlayerShootingFunctionalTests
     }
 
     [UnityTest]
+    public IEnumerator Shooting_ExistingWeaponPowerBehavior_RemainsIntact()
+    {
+        PlayerShooting shooting =
+            playerObject.GetComponent<PlayerShooting>();
+
+        shooting.weaponPower = 1;
+
+        int before = CountSpawnedProjectiles();
+
+        shooting.SendMessage(
+            "MakeAShot",
+            SendMessageOptions.RequireReceiver);
+
+        yield return null;
+
+        int after = CountSpawnedProjectiles();
+
+        Assert.Greater(
+            after - before,
+            0,
+            "Existing shooting behavior should continue producing projectiles.");
+    }
+
+    [UnityTest]
     public IEnumerator WeaponPower_IsLimitedToConfiguredMaximum()
     {
         PlayerShooting shooting =

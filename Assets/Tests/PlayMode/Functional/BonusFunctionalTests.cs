@@ -14,6 +14,8 @@ public class BonusFunctionalTests
         playerObject =
             SpaceShooterTestBuilder.CreatePlayerWithShooting();
 
+        playerObject.AddComponent<CircleCollider2D>();
+
         bonusObject =
             SpaceShooterTestBuilder.CreateBonus();
 
@@ -89,5 +91,28 @@ public class BonusFunctionalTests
             shooting.weaponPower);
 
         yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator Bonus_Collection_DestroysBonus()
+    {
+        PlayerShooting shooting =
+            playerObject.GetComponent<PlayerShooting>();
+
+        shooting.weaponPower = 1;
+
+        Collider2D playerCollider =
+            playerObject.GetComponent<Collider2D>();
+
+        bonusObject.SendMessage(
+            "OnTriggerEnter2D",
+            playerCollider,
+            SendMessageOptions.RequireReceiver);
+
+        yield return null;
+
+        Assert.IsTrue(
+            bonusObject == null,
+            "Bonus should be destroyed after being collected.");
     }
 }
