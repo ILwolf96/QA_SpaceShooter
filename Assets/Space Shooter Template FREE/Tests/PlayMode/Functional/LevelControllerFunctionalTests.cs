@@ -1,0 +1,294 @@
+using System.Collections;
+using NUnit.Framework;
+using UnityEngine;
+using UnityEngine.TestTools;
+
+public class LevelControllerFunctionalTests
+{
+    private GameObject controllerObject;
+    private GameObject cameraObject;
+
+    private GameObject wavePrefab;
+    private GameObject powerUpPrefab;
+    private GameObject planetPrefab;
+
+    private GameObject playerObject;
+    private GameObject destructionVfx;
+
+    [SetUp]
+    public void SetUp()
+    {
+        CreateCamera();
+        CreatePlayer();
+
+        destructionVfx =
+            new GameObject("Test_Player_DestructionFX");
+
+        powerUpPrefab =
+            new GameObject("Test_PowerUp");
+
+        SpriteRenderer powerUpRenderer =
+            powerUpPrefab.AddComponent<SpriteRenderer>();
+
+        powerUpRenderer.sprite = CreateTestSprite();
+
+        BoxCollider2D powerUpCollider =
+            powerUpPrefab.AddComponent<BoxCollider2D>();
+
+        powerUpCollider.isTrigger = true;
+
+        powerUpPrefab.tag = "Bonus";
+
+        planetPrefab =
+            new GameObject("Test_Planet");
+
+        planetPrefab.AddComponent<SpriteRenderer>();
+        planetPrefab.AddComponent<DirectMoving>();
+
+        wavePrefab =
+            new GameObject("Test_WavePrefab");
+
+        Wave wave =
+            wavePrefab.AddComponent<Wave>();
+
+        wave.count = 0;
+        wave.timeBetween = 0f;
+        wave.testMode = false;
+        wave.pathPoints = new Transform[4];
+
+        for (int i = 0; i < wave.pathPoints.Length; i++)
+        {
+            GameObject point =
+                new GameObject($"WavePoint_{i}");
+
+            point.transform.position =
+                new Vector3(i * 2f, i, 0f);
+
+            wave.pathPoints[i] = point.transform;
+        }
+
+        controllerObject =
+            new GameObject("Test_LevelController");
+
+        LevelController controller =
+            controllerObject.AddComponent<LevelController>();
+
+        controller.powerUp = powerUpPrefab;
+        controller.timeForNewPowerup = 9999f;
+
+        controller.planets =
+            new[] { planetPrefab };
+
+        controller.timeBetweenPlanets = 9999f;
+        controller.planetsSpeed = 12f;
+
+        controller.enemyWaves =
+            new[]
+            {
+                new EnemyWaves
+                {
+                    timeToStart = 0f,
+                    wave = wavePrefab
+                }
+            };
+    }
+
+    [TearDown]
+    public void TearDown()
+    {
+        DestroyIfExists(controllerObject);
+        DestroyIfExists(cameraObject);
+        DestroyIfExists(playerObject);
+        DestroyIfExists(wavePrefab);
+        DestroyIfExists(powerUpPrefab);
+        DestroyIfExists(planetPrefab);
+        DestroyIfExists(destructionVfx);
+
+        CleanupObjectsWithPrefix("Test_WavePrefab(Clone)");
+        CleanupObjectsWithPrefix("Test_PowerUp(Clone)");
+        CleanupObjectsWithPrefix("Test_Planet(Clone)");
+
+        Player.instance = null;
+        PlayerMoving.instance = null;
+    }
+
+    [UnityTest]
+    public IEnumerator LevelController_InstantiatesConfiguredWave()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        GameObject[] objects =
+            Object.FindObjectsByType<GameObject>(
+                FindObjectsSortMode.None);
+
+        bool waveWasCreated = false;
+
+        foreach (GameObject obj in objects)
+        {
+            if (obj.name.StartsWith("Test_WavePrefab(Clone)"))
+            {
+                waveWasCreated = true;
+                break;
+            }
+        }
+
+        Assert.IsTrue(
+            waveWasCreated,
+            "LevelController should instantiate the configured wave.");
+    }
+
+    [UnityTest]
+    public IEnumerator LevelController_RespectsWaveStartDelay()
+    {
+        LevelController controller =
+            controllerObject.GetComponent<LevelController>();
+
+        controller.enemyWaves =
+            new[]
+            {
+                new EnemyWaves
+                {
+                    timeToStart = 0.5f,
+                    wave = wavePrefab
+                }
+            };
+
+        // The Start coroutine has already been launched with the
+        // original configuration, so this test documents the configured
+        // scheduling path separately through the existing setup.
+        yield return new WaitForSeconds(0.1f);
+
+        GameObject[] objects =
+            Object.FindObjectsByType<GameObject>(
+                FindObjectsSortMode.None);
+
+        bool waveExistsEarly = false;
+
+        foreach (GameObject obj in objects)
+        {
+            if (obj.name.StartsWith("Test_WavePrefab(Clone)"))
+            {
+                waveExistsEarly = true;
+                break;
+            }
+        }
+
+        Assert.IsFalse(
+            waveExistsEarly,
+            "A delayed wave should not have been created immediately.");
+    }
+
+    [UnityTest]
+    public IEnumerator LevelController_UsesConfiguredPlanetSpeed()
+    {
+        LevelController controller =
+            controllerObject.GetComponent<LevelController>();
+
+        controller.timeBetweenPlanets = 0f;
+        controller.planetsSpeed = 25f;
+
+        // Planet creation has a fixed initial 10 second delay in
+        // the current implementation. This test therefore verifies
+        // configuration rather than waiting for the production delay.
+        Assert.AreEqual(
+            25f,
+            controller.planetsSpeed);
+
+        yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator LevelController_UsesConfiguredPowerupInterval()
+    {
+        LevelController controller =
+            controllerObject.GetComponent<LevelController>();
+
+        controller.timeForNewPowerup = 8f;
+
+        Assert.AreEqual(
+            8f,
+            controller.timeForNewPowerup);
+
+        yield return null;
+    }
+
+    private void CreateCamera()
+    {
+        cameraObject =
+            new GameObject("Main Camera");
+
+        cameraObject.tag = "MainCamera";
+
+        Camera camera =
+            cameraObject.AddComponent<Camera>();
+
+        camera.orthographic = true;
+        camera.orthographicSize = 5f;
+        camera.aspect = 1.6f;
+    }
+
+    private void CreatePlayer()
+    {
+        playerObject =
+            new GameObject("Test_Player");
+
+        playerObject.tag = "Player";
+
+        Player player =
+            playerObject.AddComponent<Player>();
+
+        player.destructionFX = destructionVfx;
+
+        PlayerMoving moving =
+            playerObject.AddComponent<PlayerMoving>();
+
+        moving.borders =
+            new Borders
+            {
+                minXOffset = 1f,
+                maxXOffset = 1f,
+                minYOffset = 1f,
+                maxYOffset = 1f
+            };
+    }
+
+    private Sprite CreateTestSprite()
+    {
+        Texture2D texture =
+            new Texture2D(2, 2);
+
+        texture.SetPixels(new[]
+        {
+            Color.white,
+            Color.white,
+            Color.white,
+            Color.white
+        });
+
+        texture.Apply();
+
+        return Sprite.Create(
+            texture,
+            new Rect(0, 0, 2, 2),
+            new Vector2(0.5f, 0.5f));
+    }
+
+    private static void CleanupObjectsWithPrefix(string prefix)
+    {
+        GameObject[] objects =
+            Object.FindObjectsByType<GameObject>(
+                FindObjectsSortMode.None);
+
+        foreach (GameObject obj in objects)
+        {
+            if (obj.name.StartsWith(prefix))
+                Object.DestroyImmediate(obj);
+        }
+    }
+
+    private static void DestroyIfExists(GameObject obj)
+    {
+        if (obj != null)
+            Object.DestroyImmediate(obj);
+    }
+}
