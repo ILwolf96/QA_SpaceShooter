@@ -107,17 +107,7 @@ public class WaveFunctionalTests
 
         yield return new WaitForSeconds(0.2f);
 
-        GameObject[] enemies =
-            Object.FindObjectsByType<GameObject>(
-                FindObjectsSortMode.None);
-
-        int spawnedCount = 0;
-
-        foreach (GameObject obj in enemies)
-        {
-            if (obj.name.StartsWith("Test_Enemy(Clone)"))
-                spawnedCount++;
-        }
+        int spawnedCount = CountSpawnedEnemies();
 
         Assert.AreEqual(
             1,
@@ -235,6 +225,31 @@ public class WaveFunctionalTests
             0.001f);
     }
 
+    [UnityTest]
+    public IEnumerator TestMode_RegeneratesWaveAfterThreeSeconds()
+    {
+        Wave wave = waveObject.GetComponent<Wave>();
+        wave.testMode = true; // Enable test mode specifically for this test
+
+        yield return new WaitForSeconds(0.25f);
+
+        int firstWaveCount = CountSpawnedEnemies();
+
+        Assert.AreEqual(
+            1,
+            firstWaveCount,
+            "The initial test-mode wave should spawn one enemy.");
+
+        yield return new WaitForSeconds(3.1f);
+
+        int secondWaveCount = CountSpawnedEnemies();
+
+        Assert.GreaterOrEqual(
+            secondWaveCount,
+            1,
+            "Test mode should generate another wave after its three-second delay.");
+    }
+
     private Transform[] GetPathTransforms()
     {
         Transform[] result =
@@ -270,6 +285,23 @@ public class WaveFunctionalTests
             return null;
 
         return enemy.GetComponent<FollowThePath>();
+    }
+
+    private int CountSpawnedEnemies()
+    {
+        GameObject[] objects =
+            Object.FindObjectsByType<GameObject>(
+                FindObjectsSortMode.None);
+
+        int count = 0;
+
+        foreach (GameObject obj in objects)
+        {
+            if (obj.name.StartsWith("Test_Enemy(Clone)"))
+                count++;
+        }
+
+        return count;
     }
 
     private void CleanupSpawnedEnemies()

@@ -105,4 +105,33 @@ public class PoolingControllerFunctionalTests
             controllerObject.transform.childCount,
             "A new object should be created after the pool is exhausted.");
     }
+
+    [UnityTest]
+    public IEnumerator ReturnedInactiveObject_CanBeRetrievedAgain()
+    {
+        yield return null;
+
+        PoolingController controller =
+            controllerObject.GetComponent<PoolingController>();
+
+        GameObject first =
+            controller.GetPoolingObject(pooledPrefab);
+
+        Assert.IsNotNull(first);
+        Assert.IsFalse(first.activeSelf);
+
+        first.SetActive(true);
+        first.SetActive(false);
+
+        GameObject second =
+            controller.GetPoolingObject(pooledPrefab);
+
+        Assert.AreSame(
+            first,
+            second,
+            "An inactive pooled object should be reused rather than replaced.");
+
+        Assert.IsFalse(
+            second.activeSelf);
+    }
 }
