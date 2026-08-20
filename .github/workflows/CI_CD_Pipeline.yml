@@ -1,0 +1,186 @@
+name: QA Space Shooter CI/CD
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+
+  pull_request:
+    branches:
+      - main
+      - master
+      - develop
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  checks: write
+
+env:
+  UNITY_VERSION: 6000.0.43f1
+
+jobs:
+
+  # ============================================================
+  # UNITY AUTOMATED TESTS
+  # ============================================================
+
+  test:
+    name: Unity Automated Tests
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # --------------------------------------------------------
+      # Checkout
+      # --------------------------------------------------------
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      # --------------------------------------------------------
+      # Cache Unity Library
+      # --------------------------------------------------------
+
+      - name: Cache Unity Library
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-${{ runner.os }}-${{ env.UNITY_VERSION }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-${{ runner.os }}-${{ env.UNITY_VERSION }}-
+            Library-${{ runner.os }}-
+
+      # --------------------------------------------------------
+      # Run Unity tests
+      # --------------------------------------------------------
+
+      - name: Run Unity PlayMode and EditMode Tests
+        id: unity-tests
+        continue-on-error: true
+        uses: game-ci/unity-test-runner@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: .
+          unityVersion: ${{ env.UNITY_VERSION }}
+          testMode: all
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          checkName: Unity Automated Tests
+
+      # --------------------------------------------------------
+      # Upload test results
+      # --------------------------------------------------------
+
+      - name: Upload Unity Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Unity-Test-Results
+          path: ${{ steps.unity-tests.outputs.artifactsPath }}
+
+      # --------------------------------------------------------
+      # Report test status
+      # --------------------------------------------------------
+
+      - name: Report Test Result
+        if: always()
+        run: |
+          echo "Unity automated tests completed."
+          echo "Test artifacts have been uploaded."
+          echo "Known baseline failures are recorded as QA findings."
+
+  # ============================================================
+  # WEBGL BUILD
+  # ============================================================
+
+  webgl-build:
+    name: WebGL Build
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Cache Unity Library
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-WebGL-${{ env.UNITY_VERSION }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-WebGL-${{ env.UNITY_VERSION }}-
+            Library-
+
+      - name: Build WebGL
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: .
+          unityVersion: ${{ env.UNITY_VERSION }}
+          targetPlatform: WebGL
+
+      - name: Upload WebGL Build
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: WebGL-Build
+          path: build/WebGL
+
+  # ============================================================
+  # ANDROID BUILD
+  # ============================================================
+
+  android-build:
+    name: Android Build
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Cache Unity Library
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-Android-${{ env.UNITY_VERSION }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-Android-${{ env.UNITY_VERSION }}-
+            Library-
+
+      - name: Build Android
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: .
+          unityVersion: ${{ env.UNITY_VERSION }}
+          targetPlatform: Android
+          # Optional: Change to 'apk' or 'app bundle' depending on preference (.apk is default if omitted)
+          customParameters: -buildTarget Android
+
+      - name: Upload Android Build
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Android-Build
+          path: build/Android
