@@ -1,16 +1,20 @@
 using UnityEngine;
 
 /// <summary>
-/// Controls progression between the game's levels.
-///
-/// RED-phase TDD shell:
-/// the public API exists so the integration tests can compile,
-/// but the actual level-transition behavior is intentionally incomplete.
+/// Controls progression between Level 1, Level 2 and final victory.
 /// </summary>
 public class LevelFlowController : MonoBehaviour
 {
-    [Header("Levels")]
-    public int currentLevel = 1;
+    [Header("Level State")]
+    [SerializeField]
+    private int currentLevel = 1;
+
+    [Header("Level Objects")]
+    [Tooltip("Optional Level 1 root object.")]
+    public GameObject level1Object;
+
+    [Tooltip("Optional Level 2 root object.")]
+    public GameObject level2Object;
 
     public bool Level2Started { get; private set; }
 
@@ -18,21 +22,35 @@ public class LevelFlowController : MonoBehaviour
 
     public bool GameCompleted { get; private set; }
 
+    public int CurrentLevel => currentLevel;
+
     /// <summary>
-    /// Marks Level 1 as completed.
-    /// RED-phase implementation intentionally does not start Level 2.
+    /// Completes Level 1 and starts Level 2.
     /// </summary>
     public void CompleteLevel1()
     {
-        // Intentionally incomplete for TDD RED phase.
+        if (currentLevel != 1)
+            return;
+
+        currentLevel = 2;
+        Level2Started = true;
+
+        if (level1Object != null)
+            level1Object.SetActive(false);
+
+        if (level2Object != null)
+            level2Object.SetActive(true);
     }
 
     /// <summary>
-    /// Marks Level 2 as completed.
-    /// RED-phase implementation intentionally does not complete the game.
+    /// Completes Level 2 and finishes the game.
     /// </summary>
     public void CompleteLevel2()
     {
-        // Intentionally incomplete for TDD RED phase.
+        if (currentLevel != 2 || !Level2Started)
+            return;
+
+        Level2Completed = true;
+        GameCompleted = true;
     }
 }

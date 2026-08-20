@@ -3,21 +3,31 @@ using UnityEngine;
 /// <summary>
 /// Handles optional shield defense for an Enemy.
 ///
-/// Damage is absorbed by the shield first. Any damage that exceeds
-/// the remaining shield health is returned to the caller so that
-/// the Enemy can apply it to its normal health.
+/// The shield absorbs incoming damage before the Enemy's normal
+/// health is affected. A visual shield prefab can be instantiated
+/// while the shield is active and removed when the shield breaks.
 /// </summary>
 public class EnemyShield : MonoBehaviour
 {
     [Header("Shield Settings")]
-    [Tooltip("Maximum/current shield hit points.")]
+    [Tooltip("Starting shield hit points.")]
     [Min(0)]
     public int shieldHealth = 10;
+
+    [Tooltip("Prefab used as the visual representation of the shield.")]
+    public GameObject shieldVisualPrefab;
+
+    private GameObject shieldVisualInstance;
 
     /// <summary>
     /// Returns true while the shield has remaining health.
     /// </summary>
     public bool IsActive => shieldHealth > 0;
+
+    private void Awake()
+    {
+        CreateShieldVisual();
+    }
 
     /// <summary>
     /// Initializes or resets the shield to the supplied amount.
@@ -25,12 +35,13 @@ public class EnemyShield : MonoBehaviour
     public void Initialize(int health)
     {
         shieldHealth = Mathf.Max(0, health);
+
+        UpdateShieldVisual();
     }
 
     /// <summary>
-    /// Applies incoming damage to the shield.
-    ///
-    /// Returns any damage that the shield could not absorb.
+    /// Applies damage to the shield and returns any damage
+    /// that the shield could not absorb.
     /// </summary>
     public int AbsorbDamage(int damage)
     {
@@ -40,10 +51,63 @@ public class EnemyShield : MonoBehaviour
         if (!IsActive)
             return damage;
 
-        int absorbedDamage = Mathf.Min(shieldHealth, damage);
+        int absorbedDamage =
+            Mathf.Min(shieldHealth, damage);
 
         shieldHealth -= absorbedDamage;
 
+        UpdateShieldVisual();
+
         return damage - absorbedDamage;
+    }
+
+    private void CreateShieldVisual()
+    {
+        if (!IsActive)
+            return;
+
+        if (shieldVisualPrefab == null)
+            return;
+
+        if (shieldVisualInstance != null)
+            return;
+
+        shieldVisualInstance =
+            Instantiate(
+                shieldVisualPrefab,
+                transform.position,
+                Quaternion.identity,
+                transform);
+
+        shieldVisualInstance.transform.localPosition = Vector3.zero;
+        shieldVisualInstance.transform.localRotation = Quaternion.identity;
+    }
+
+    private void UpdateShieldVisual()
+    {
+        if (IsActive)
+        {
+            if (shieldVisualInstance == null)
+                CreateShieldVisual();
+        }
+        else
+        {
+            DestroyShieldVisual();
+        }
+    }
+
+    private void DestroyShieldVisual()
+    {
+        if (shieldVisualInstance != null)
+        {
+            Destroy(shieldVisualInstance);
+            shieldVisualInstance = null;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (shieldVisualInstance != null)
+            Destroy(shieldVisualInstance);
     }
 }

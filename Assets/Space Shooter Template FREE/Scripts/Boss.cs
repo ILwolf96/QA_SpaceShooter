@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Controls the Boss ship's health and movement.
+/// Controls the Boss ship's health, movement, shooting and destruction.
 /// </summary>
 public class Boss : MonoBehaviour
 {
@@ -13,12 +13,34 @@ public class Boss : MonoBehaviour
     [HideInInspector]
     public int health;
 
+    [Header("Projectile")]
+    [Tooltip("Projectile prefab fired by the Boss.")]
+    public GameObject Projectile;
+
+    [Header("Visual Effects")]
+    [Tooltip("Effect created when the Boss is destroyed.")]
+    public GameObject destructionVFX;
+
+    [Tooltip("Effect created when the Boss receives non-lethal damage.")]
+    public GameObject hitEffect;
+
+    [Header("Shooting")]
+    [Range(0, 100)]
+    [Tooltip("Probability of firing when the shooting attempt occurs.")]
+    public int shotChance = 50;
+
+    [Tooltip("Minimum time before a shooting attempt.")]
+    public float shotTimeMin = 2f;
+
+    [Tooltip("Maximum time before a shooting attempt.")]
+    public float shotTimeMax = 4f;
+
     [Header("Movement")]
     [Tooltip("Boss movement speed.")]
     [Min(0f)]
     public float movementSpeed = 5f;
 
-    [Tooltip("Boss movement direction. Horizontal, vertical, or combined.")]
+    [Tooltip("Boss movement direction.")]
     public Vector2 movementDirection = Vector2.zero;
 
     [Header("Arena Bounds")]
@@ -32,6 +54,16 @@ public class Boss : MonoBehaviour
     private void Awake()
     {
         ResetHealth();
+    }
+
+    private void Start()
+    {
+        if (shotTimeMin <= shotTimeMax)
+        {
+            Invoke(
+                nameof(AttemptToShoot),
+                Random.Range(shotTimeMin, shotTimeMax));
+        }
     }
 
     private void Update()
@@ -58,40 +90,66 @@ public class Boss : MonoBehaviour
             health - damage);
 
         if (health <= 0)
+        {
             Destruction();
+        }
+        else if (hitEffect != null)
+        {
+            Instantiate(
+                hitEffect,
+                transform.position,
+                Quaternion.identity,
+                transform);
+        }
+    }
+
+    private void AttemptToShoot()
+    {
+        if (!IsAlive)
+            return;
+
+        if (Projectile != null &&
+            Random.value < (float)shotChance / 100f)
+        {
+            Instantiate(
+                Projectile,
+                transform.position,
+                Quaternion.identity);
+        }
     }
 
     private void Move()
     {
-        Vector2 normalizedDirection =
+        Vector2 direction =
             movementDirection.sqrMagnitude > 1f
                 ? movementDirection.normalized
                 : movementDirection;
 
-        Vector3 movement =
+        transform.position +=
             new Vector3(
-                normalizedDirection.x,
-                normalizedDirection.y,
+                direction.x,
+                direction.y,
                 0f)
             * movementSpeed
             * Time.deltaTime;
-
-        transform.position += movement;
     }
 
     private void ClampToArena()
     {
-        Vector3 position = transform.position;
+        Vector3 position =
+            transform.position;
 
-        position.x = Mathf.Clamp(
-            position.x,
-            minX,
-            maxX);
+        position.x =
+            Mathf.Clamp(
+                position.x,
+                minX,
+                maxX);
 
-        position.y = Mathf.Clamp(
-            position.y,
-            minY,
-            maxY);
+        position.y =
+            Mathf.Clamp(
+                position.y,
+                minY,
+                maxY);
 
         position.z = 0f;
 
@@ -100,6 +158,14 @@ public class Boss : MonoBehaviour
 
     private void Destruction()
     {
+        if (destructionVFX != null)
+        {
+            Instantiate(
+                destructionVFX,
+                transform.position,
+                Quaternion.identity);
+        }
+
         Destroy(gameObject);
     }
 }

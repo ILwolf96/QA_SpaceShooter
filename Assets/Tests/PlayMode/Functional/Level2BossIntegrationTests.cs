@@ -134,7 +134,7 @@ public class Level2BossIntegrationTests
 
         Assert.AreEqual(
             2,
-            levelFlow.currentLevel,
+            levelFlow.CurrentLevel,
             "Current level should become Level 2.");
     }
 
