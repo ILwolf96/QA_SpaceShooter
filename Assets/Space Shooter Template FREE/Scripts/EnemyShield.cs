@@ -1,35 +1,49 @@
 using UnityEngine;
 
 /// <summary>
-/// TDD placeholder for Enemy Shield Defense.
+/// Handles optional shield defense for an Enemy.
 ///
-/// This class intentionally contains only the API required by the
-/// first Shield tests.
-/// The actual Shield behavior will be implemented
-/// after the tests are written and verified to fail.
+/// Damage is absorbed by the shield first. Any damage that exceeds
+/// the remaining shield health is returned to the caller so that
+/// the Enemy can apply it to its normal health.
 /// </summary>
 public class EnemyShield : MonoBehaviour
 {
-    [Tooltip("Shield hit points.")]
+    [Header("Shield Settings")]
+    [Tooltip("Maximum/current shield hit points.")]
+    [Min(0)]
     public int shieldHealth = 10;
 
+    /// <summary>
+    /// Returns true while the shield has remaining health.
+    /// </summary>
     public bool IsActive => shieldHealth > 0;
 
     /// <summary>
-    /// Receives shield damage.
-    ///
-    /// This allows the tests to compile and fail for behavioral reasons.
-    /// </summary>
-    public int AbsorbDamage(int damage)
-    {
-        return damage;
-    }
-
-    /// <summary>
-    /// Returns the amount of shield damage that can currently be absorbed.
+    /// Initializes or resets the shield to the supplied amount.
     /// </summary>
     public void Initialize(int health)
     {
-        shieldHealth = health;
+        shieldHealth = Mathf.Max(0, health);
+    }
+
+    /// <summary>
+    /// Applies incoming damage to the shield.
+    ///
+    /// Returns any damage that the shield could not absorb.
+    /// </summary>
+    public int AbsorbDamage(int damage)
+    {
+        if (damage <= 0)
+            return 0;
+
+        if (!IsActive)
+            return damage;
+
+        int absorbedDamage = Mathf.Min(shieldHealth, damage);
+
+        shieldHealth -= absorbedDamage;
+
+        return damage - absorbedDamage;
     }
 }

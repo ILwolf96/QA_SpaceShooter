@@ -75,14 +75,14 @@ public class EnemyShieldTests
             shield.AbsorbDamage(5);
 
         Assert.AreEqual(
-            5,
+            0,
             remainingDamage,
-            "Damage-processing contract should return remaining damage.");
+            "A shield with sufficient HP should absorb all incoming damage.");
 
-        Assert.Less(
+        Assert.AreEqual(
+            15,
             shield.shieldHealth,
-            20,
-            "Shield HP should decrease when damage is absorbed.");
+            "Shield HP should decrease by the absorbed damage.");
     }
 
     // ------------------------------------------------------------------
