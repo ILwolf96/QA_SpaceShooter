@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c637fc1d567da6498c5ed8b06d997ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldHealth: 10
+  shieldHealth: 1
   shieldVisualPrefab: {fileID: 1728936453619090, guid: 4a9072788e18c1d4e90e0e329bef5c63,
     type: 3}
 --- !u!50 &50267448758737772

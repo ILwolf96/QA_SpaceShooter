@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 #region Serializable classes
+
 [System.Serializable]
-public class EnemyWaves 
+public class EnemyWaves
 {
     [Tooltip("time for wave generation from the moment the game started")]
     public float timeToStart;
@@ -15,83 +16,188 @@ public class EnemyWaves
 
 #endregion
 
-public class LevelController : MonoBehaviour {
-
-    //Serializable classes implements
-    public EnemyWaves[] enemyWaves; 
+public class LevelController : MonoBehaviour
+{
+    public EnemyWaves[] enemyWaves;
 
     public GameObject powerUp;
     public float timeForNewPowerup;
+
     public GameObject[] planets;
     public float timeBetweenPlanets;
     public float planetsSpeed;
-    List<GameObject> planetsList = new List<GameObject>();
 
-    Camera mainCamera;   
+    private readonly List<GameObject> planetsList =
+        new List<GameObject>();
+
+    private Camera mainCamera;
+
+    private bool levelRunning;
 
     private void Start()
     {
-        mainCamera = Camera.main;
-        //for each element in 'enemyWaves' array creating coroutine which generates the wave
-        for (int i = 0; i<enemyWaves.Length; i++) 
-        {
-            StartCoroutine(CreateEnemyWave(enemyWaves[i].timeToStart, enemyWaves[i].wave));
-        }
-        StartCoroutine(PowerupBonusCreation());
-        StartCoroutine(PlanetsCreation());
+        StartLevel();
     }
-    
-    //Create a new wave after a delay
-    IEnumerator CreateEnemyWave(float delay, GameObject Wave) 
+
+    /// <summary>
+    /// Starts the configured level.
+    /// </summary>
+    public void StartLevel()
+    {
+        StopLevel();
+
+        mainCamera = Camera.main;
+        levelRunning = true;
+
+        if (enemyWaves != null)
+        {
+            for (int i = 0; i < enemyWaves.Length; i++)
+            {
+                if (enemyWaves[i] == null ||
+                    enemyWaves[i].wave == null)
+                    continue;
+
+                StartCoroutine(
+                    CreateEnemyWave(
+                        enemyWaves[i].timeToStart,
+                        enemyWaves[i].wave));
+            }
+        }
+
+        if (powerUp != null)
+            StartCoroutine(PowerupBonusCreation());
+
+        if (planets != null &&
+            planets.Length > 0)
+        {
+            StartCoroutine(PlanetsCreation());
+        }
+    }
+
+    /// <summary>
+    /// Stops all level-controller spawning activity.
+    /// </summary>
+    public void StopLevel()
+    {
+        levelRunning = false;
+
+        StopAllCoroutines();
+
+        planetsList.Clear();
+    }
+
+    IEnumerator CreateEnemyWave(
+        float delay,
+        GameObject Wave)
     {
         if (delay != 0)
             yield return new WaitForSeconds(delay);
-        if (Player.instance != null)
+
+        if (!levelRunning)
+            yield break;
+
+        if (Player.instance != null &&
+            Wave != null)
+        {
             Instantiate(Wave);
+        }
     }
 
-    //endless coroutine generating 'levelUp' bonuses. 
-    IEnumerator PowerupBonusCreation() 
+    IEnumerator PowerupBonusCreation()
     {
-        while (true) 
+        while (levelRunning)
         {
-            yield return new WaitForSeconds(timeForNewPowerup);
+            yield return new WaitForSeconds(
+                timeForNewPowerup);
+
+            if (!levelRunning)
+                yield break;
+
+            if (mainCamera == null)
+                mainCamera = Camera.main;
+
+            if (mainCamera == null ||
+                PlayerMoving.instance == null ||
+                powerUp == null)
+                continue;
+
+            Renderer powerUpRenderer =
+                powerUp.GetComponent<Renderer>();
+
+            if (powerUpRenderer == null)
+                continue;
+
             Instantiate(
                 powerUp,
-                //Set the position for the new bonus: for X-axis - random position between the borders of 'Player's' movement; for Y-axis - right above the upper screen border 
                 new Vector2(
-                    Random.Range(PlayerMoving.instance.borders.minX, PlayerMoving.instance.borders.maxX), 
-                    mainCamera.ViewportToWorldPoint(Vector2.up).y + powerUp.GetComponent<Renderer>().bounds.size.y / 2), 
-                Quaternion.identity
-                );
+                    Random.Range(
+                        PlayerMoving.instance.borders.minX,
+                        PlayerMoving.instance.borders.maxX),
+
+                    mainCamera.ViewportToWorldPoint(
+                        Vector2.up).y
+                    +
+                    powerUpRenderer.bounds.size.y / 2),
+
+                Quaternion.identity);
         }
     }
 
     IEnumerator PlanetsCreation()
     {
-        //Create a new list copying the arrey
+        planetsList.Clear();
+
         for (int i = 0; i < planets.Length; i++)
         {
-            planetsList.Add(planets[i]);
+            if (planets[i] != null)
+                planetsList.Add(planets[i]);
         }
+
         yield return new WaitForSeconds(10);
-        while (true)
+
+        while (levelRunning)
         {
-            ////choose random object from the list, generate and delete it
-            int randomIndex = Random.Range(0, planetsList.Count);
-            GameObject newPlanet = Instantiate(planetsList[randomIndex]);
-            planetsList.RemoveAt(randomIndex);
-            //if the list decreased to zero, reinstall it
             if (planetsList.Count == 0)
             {
-                for (int i = 0; i < planets.Length; i++)
-                {
-                    planetsList.Add(planets[i]);
-                }
-            }
-            newPlanet.GetComponent<DirectMoving>().speed = planetsSpeed;
+                RebuildPlanetList();
 
-            yield return new WaitForSeconds(timeBetweenPlanets);
+                if (planetsList.Count == 0)
+                    yield break;
+            }
+
+            int randomIndex =
+                Random.Range(
+                    0,
+                    planetsList.Count);
+
+            GameObject newPlanet =
+                Instantiate(
+                    planetsList[randomIndex]);
+
+            planetsList.RemoveAt(randomIndex);
+
+            DirectMoving moving =
+                newPlanet.GetComponent<DirectMoving>();
+
+            if (moving != null)
+                moving.speed = planetsSpeed;
+
+            yield return new WaitForSeconds(
+                timeBetweenPlanets);
+        }
+    }
+
+    private void RebuildPlanetList()
+    {
+        planetsList.Clear();
+
+        if (planets == null)
+            return;
+
+        for (int i = 0; i < planets.Length; i++)
+        {
+            if (planets[i] != null)
+                planetsList.Add(planets[i]);
         }
     }
 }

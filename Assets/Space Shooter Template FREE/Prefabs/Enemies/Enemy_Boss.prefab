@@ -10,14 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4073124609858142}
   - component: {fileID: 212742557042598518}
-  - component: {fileID: 114339271854877628}
   - component: {fileID: 58425179734721642}
   - component: {fileID: 114640587493707362}
-  - component: {fileID: 50267448758737772}
   - component: {fileID: 3607200596969514229}
   m_Layer: 0
   m_Name: Enemy_Boss
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,26 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &114339271854877628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1373690366928948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb93e18709841574888ca778559f3bc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 2
-  Projectile: {fileID: 1728936453619090, guid: 9610b32634c0355409b4b5991571a66b, type: 3}
-  destructionVFX: {fileID: 1280240331523082, guid: 45ae5851ef2832044bba82850372d67b,
-    type: 3}
-  hitEffect: {fileID: 1256001557233130, guid: 2dd0bdb7830e6644da169b32252dca96, type: 3}
-  shotChance: 10
-  shotTimeMin: 1
-  shotTimeMax: 3
 --- !u!58 &58425179734721642
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -168,33 +146,6 @@ MonoBehaviour:
   rotationByPath: 1
   loop: 1
   movingIsActive: 0
---- !u!50 &50267448758737772
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1373690366928948}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &3607200596969514229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd6a3236222d594995d15bdd0f2f9c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5000
+  maxHealth: 1000
   health: 0
   Projectile: {fileID: 1728936453619090, guid: 9610b32634c0355409b4b5991571a66b, type: 3}
   destructionVFX: {fileID: 1280240331523082, guid: 031faf5ef0ec4c34c86671fa3e2e81d1,
@@ -218,6 +169,7 @@ MonoBehaviour:
   shotTimeMax: 4
   movementSpeed: 5
   movementDirection: {x: 0, y: 0}
+  bounceAtBounds: 1
   minX: -10
   maxX: 10
   minY: -5

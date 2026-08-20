@@ -1,21 +1,14 @@
 using UnityEngine;
 
-/// <summary>
-/// Controls progression between Level 1, Level 2 and final victory.
-/// Also exposes explicit methods used by the development/manual-test cheats.
-/// </summary>
 public class LevelFlowController : MonoBehaviour
 {
+    [Header("Controllers")]
+    public LevelController levelController;
+    public Level2Controller level2Controller;
+
     [Header("Level State")]
     [SerializeField]
     private int currentLevel = 1;
-
-    [Header("Level Objects")]
-    [Tooltip("Optional Level 1 root/controller object.")]
-    public GameObject level1Object;
-
-    [Tooltip("Optional Level 2 root/controller object.")]
-    public GameObject level2Object;
 
     public bool Level2Started { get; private set; }
 
@@ -23,11 +16,46 @@ public class LevelFlowController : MonoBehaviour
 
     public bool GameCompleted { get; private set; }
 
-    public int CurrentLevel => currentLevel;
+    public int CurrentLevel =>
+        currentLevel;
 
-    /// <summary>
-    /// Starts Level 1.
-    /// </summary>
+    private void Awake()
+    {
+        if (levelController == null)
+        {
+            levelController =
+                GetComponentInChildren<LevelController>();
+        }
+
+        if (level2Controller == null)
+        {
+            level2Controller =
+                GetComponentInChildren<Level2Controller>();
+        }
+    }
+
+    private void Start()
+    {
+        currentLevel = 1;
+        Level2Started = false;
+        Level2Completed = false;
+        GameCompleted = false;
+
+        if (level2Controller != null)
+            level2Controller.StopLevel();
+
+        if (level2Controller != null)
+            level2Controller.LevelCompleted +=
+                HandleLevel2Completed;
+    }
+
+    private void OnDestroy()
+    {
+        if (level2Controller != null)
+            level2Controller.LevelCompleted -=
+                HandleLevel2Completed;
+    }
+
     public void StartLevel1()
     {
         currentLevel = 1;
@@ -36,16 +64,13 @@ public class LevelFlowController : MonoBehaviour
         Level2Completed = false;
         GameCompleted = false;
 
-        if (level1Object != null)
-            level1Object.SetActive(true);
+        if (level2Controller != null)
+            level2Controller.StopLevel();
 
-        if (level2Object != null)
-            level2Object.SetActive(false);
+        if (levelController != null)
+            levelController.StartLevel();
     }
 
-    /// <summary>
-    /// Completes Level 1 and starts Level 2.
-    /// </summary>
     public void CompleteLevel1()
     {
         if (currentLevel != 1)
@@ -54,9 +79,6 @@ public class LevelFlowController : MonoBehaviour
         StartLevel2();
     }
 
-    /// <summary>
-    /// Starts Level 2.
-    /// </summary>
     public void StartLevel2()
     {
         currentLevel = 2;
@@ -65,22 +87,25 @@ public class LevelFlowController : MonoBehaviour
         Level2Completed = false;
         GameCompleted = false;
 
-        if (level1Object != null)
-            level1Object.SetActive(false);
+        if (levelController != null)
+            levelController.StopLevel();
 
-        if (level2Object != null)
-            level2Object.SetActive(true);
+        if (level2Controller != null)
+            level2Controller.StartLevel();
     }
 
-    /// <summary>
-    /// Completes Level 2 and finishes the game.
-    /// </summary>
     public void CompleteLevel2()
     {
-        if (currentLevel != 2 || !Level2Started)
+        if (currentLevel != 2 ||
+            !Level2Started)
             return;
 
         Level2Completed = true;
         GameCompleted = true;
+    }
+
+    private void HandleLevel2Completed()
+    {
+        CompleteLevel2();
     }
 }

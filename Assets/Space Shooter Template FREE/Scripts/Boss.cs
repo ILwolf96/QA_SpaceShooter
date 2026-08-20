@@ -26,7 +26,7 @@ public class Boss : MonoBehaviour
 
     [Header("Shooting")]
     [Range(0, 100)]
-    [Tooltip("Probability of firing when the shooting attempt occurs.")]
+    [Tooltip("Probability of firing when a shooting attempt occurs.")]
     public int shotChance = 50;
 
     [Tooltip("Minimum time before a shooting attempt.")]
@@ -38,22 +38,30 @@ public class Boss : MonoBehaviour
     [Header("Movement")]
     [Tooltip("Boss movement speed.")]
     [Min(0f)]
-    public float movementSpeed = 5f;
+    public float movementSpeed = 2.5f;
 
-    [Tooltip("Boss movement direction.")]
-    public Vector2 movementDirection = Vector2.zero;
+    [Tooltip("Initial movement direction. Use X/Y combinations for horizontal, vertical or diagonal movement.")]
+    public Vector2 movementDirection = Vector2.right;
+
+    [Tooltip("Automatically reverse direction when the Boss reaches an arena boundary.")]
+    public bool bounceAtBounds = true;
 
     [Header("Arena Bounds")]
-    public float minX = -10f;
-    public float maxX = 10f;
-    public float minY = -5f;
-    public float maxY = 5f;
+    public float minX = -8f;
+    public float maxX = 8f;
+    public float minY = -4f;
+    public float maxY = 4f;
 
     public bool IsAlive => health > 0;
 
     private void Awake()
     {
         ResetHealth();
+
+        if (movementDirection.sqrMagnitude <= 0.0001f)
+        {
+            movementDirection = Vector2.right;
+        }
     }
 
     private void Start()
@@ -72,7 +80,7 @@ public class Boss : MonoBehaviour
             return;
 
         Move();
-        ClampToArena();
+        ClampAndBounce();
     }
 
     public void ResetHealth()
@@ -103,27 +111,10 @@ public class Boss : MonoBehaviour
         }
     }
 
-    private void AttemptToShoot()
-    {
-        if (!IsAlive)
-            return;
-
-        if (Projectile != null &&
-            Random.value < (float)shotChance / 100f)
-        {
-            Instantiate(
-                Projectile,
-                transform.position,
-                Quaternion.identity);
-        }
-    }
-
     private void Move()
     {
         Vector2 direction =
-            movementDirection.sqrMagnitude > 1f
-                ? movementDirection.normalized
-                : movementDirection;
+            movementDirection.normalized;
 
         transform.position +=
             new Vector3(
@@ -134,26 +125,75 @@ public class Boss : MonoBehaviour
             * Time.deltaTime;
     }
 
-    private void ClampToArena()
+    private void ClampAndBounce()
     {
-        Vector3 position =
-            transform.position;
+        Vector3 position = transform.position;
 
-        position.x =
-            Mathf.Clamp(
-                position.x,
-                minX,
-                maxX);
+        bool hitHorizontalBoundary = false;
+        bool hitVerticalBoundary = false;
 
-        position.y =
-            Mathf.Clamp(
-                position.y,
-                minY,
-                maxY);
+        if (position.x <= minX)
+        {
+            position.x = minX;
+            hitHorizontalBoundary = true;
+        }
+        else if (position.x >= maxX)
+        {
+            position.x = maxX;
+            hitHorizontalBoundary = true;
+        }
 
-        position.z = 0f;
+        if (position.y <= minY)
+        {
+            position.y = minY;
+            hitVerticalBoundary = true;
+        }
+        else if (position.y >= maxY)
+        {
+            position.y = maxY;
+            hitVerticalBoundary = true;
+        }
 
         transform.position = position;
+
+        if (!bounceAtBounds)
+            return;
+
+        Vector2 direction =
+            movementDirection.normalized;
+
+        if (hitHorizontalBoundary)
+            direction.x *= -1f;
+
+        if (hitVerticalBoundary)
+            direction.y *= -1f;
+
+        if (direction.sqrMagnitude > 0.0001f)
+            movementDirection = direction;
+    }
+
+    private void AttemptToShoot()
+    {
+        if (!IsAlive)
+            return;
+
+        if (Projectile != null &&
+            Random.value < shotChance / 100f)
+        {
+            Instantiate(
+                Projectile,
+                transform.position,
+                Quaternion.identity);
+        }
+
+        float nextAttempt =
+            Random.Range(
+                shotTimeMin,
+                shotTimeMax);
+
+        Invoke(
+            nameof(AttemptToShoot),
+            nextAttempt);
     }
 
     private void Destruction()

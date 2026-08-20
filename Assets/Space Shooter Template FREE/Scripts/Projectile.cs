@@ -1,42 +1,73 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// Defines the damage and defines whether the projectile belongs to the ‘Enemy’ or to the ‘Player’, whether the projectile is destroyed in the collision, or not and amount of damage.
+/// Defines projectile damage and whether the projectile belongs
+/// to the Enemy or Player.
 /// </summary>
-
-public class Projectile : MonoBehaviour {
-
-    [Tooltip("Damage which a projectile deals to another object. Integer")]
+public class Projectile : MonoBehaviour
+{
+    [Tooltip("Damage which a projectile deals to another object.")]
     public int damage;
 
-    [Tooltip("Whether the projectile belongs to the ‘Enemy’ or to the ‘Player’")]
+    [Tooltip("Whether the projectile belongs to the Enemy or Player.")]
     public bool enemyBullet;
 
-    [Tooltip("Whether the projectile is destroyed in the collision, or not")]
+    [Tooltip("Whether the projectile is destroyed on collision.")]
     public bool destroyedByCollision;
 
-    private void OnTriggerEnter2D(Collider2D collision) //when a projectile collides with another object
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (enemyBullet && collision.tag == "Player") //if anoter object is 'player' or 'enemy sending the command of receiving the damage
+        if (enemyBullet)
         {
-            Player.instance.GetDamage(damage); 
-            if (destroyedByCollision)
-                Destruction();
+            if (collision.CompareTag("Player"))
+            {
+                if (Player.instance != null)
+                {
+                    Player.instance.GetDamage(damage);
+                }
+
+                if (destroyedByCollision)
+                    Destruction();
+            }
+
+            return;
         }
-        else if (!enemyBullet && collision.tag == "Enemy")
+
+        // Player projectile → normal Enemy
+        if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<Enemy>().GetDamage(damage);
-            if (destroyedByCollision)
-                Destruction();
+            Enemy enemy =
+                collision.GetComponent<Enemy>();
+
+            if (enemy != null)
+            {
+                enemy.GetDamage(damage);
+
+                if (destroyedByCollision)
+                    Destruction();
+            }
+
+            return;
+        }
+
+        // Player projectile → Boss
+        if (collision.CompareTag("Boss"))
+        {
+            Boss boss =
+                collision.GetComponent<Boss>();
+
+            if (boss != null)
+            {
+                boss.GetDamage(damage);
+
+                if (destroyedByCollision)
+                    Destruction();
+            }
         }
     }
 
-    void Destruction() 
+    private void Destruction()
     {
         Destroy(gameObject);
     }
 }
-
-
