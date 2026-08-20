@@ -110,12 +110,9 @@ public class BossTests
     [Test]
     public void BOS_UT_004_BossDiesAtZeroHealth()
     {
-        boss.maxHealth = 100;
+        int lethalDamage = boss.health;
 
-        bossObject.SetActive(false);
-        bossObject.SetActive(true);
-
-        boss.GetDamage(100);
+        boss.GetDamage(lethalDamage);
 
         Assert.AreEqual(
             0,
