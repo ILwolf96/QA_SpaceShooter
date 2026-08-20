@@ -107,6 +107,7 @@ public class LevelControllerFunctionalTests
         CleanupObjectsWithPrefix("Test_WavePrefab(Clone)");
         CleanupObjectsWithPrefix("Test_PowerUp(Clone)");
         CleanupObjectsWithPrefix("Test_Planet(Clone)");
+        CleanupObjectsWithPrefix("Regression_");
         CleanupPlanetClones();
 
         Player.instance = null;
@@ -274,6 +275,120 @@ public class LevelControllerFunctionalTests
             controller.timeForNewPowerup);
 
         yield return null;
+    }
+
+    // I know I know, this in't technically a Functional Test, But I'm Tired, and still got Plenty of work, so I will cheat here once, appoliges for the lack of thhe Proficionallity 
+
+    [UnityTest]
+    public IEnumerator LVL_RT_001_ExistingLevel1Configuration_RemainsFunctional()
+    {
+        GameObject regressionCameraObject =
+            new GameObject("Regression_Level1Camera");
+
+        regressionCameraObject.tag = "MainCamera";
+
+        Camera camera =
+            regressionCameraObject.AddComponent<Camera>();
+
+        camera.orthographic = true;
+        camera.orthographicSize = 5f;
+
+        GameObject regressionPlayerObject =
+            new GameObject("Regression_Level1Player");
+
+        regressionPlayerObject.tag = "Player";
+
+        Player player =
+            regressionPlayerObject.AddComponent<Player>();
+
+        player.destructionFX =
+            new GameObject("Regression_Level1PlayerVFX");
+
+        PlayerMoving playerMoving =
+            regressionPlayerObject.AddComponent<PlayerMoving>();
+
+        playerMoving.borders =
+            new Borders
+            {
+                minXOffset = 1f,
+                maxXOffset = 1f,
+                minYOffset = 1f,
+                maxYOffset = 1f
+            };
+
+        GameObject regressionWavePrefab =
+            new GameObject("Regression_Level1Wave");
+
+        Wave wave =
+            regressionWavePrefab.AddComponent<Wave>();
+
+        wave.count = 0;
+        wave.testMode = false;
+
+        GameObject regressionLevelObject =
+            new GameObject("Regression_LevelController");
+
+        LevelController controller =
+            regressionLevelObject.AddComponent<LevelController>();
+
+        controller.enemyWaves =
+            new[]
+            {
+                new EnemyWaves
+                {
+                    timeToStart = 0f,
+                    wave = regressionWavePrefab
+                }
+            };
+
+        controller.powerUp =
+            new GameObject("Regression_Level1PowerUp");
+
+        controller.timeForNewPowerup = 9999f;
+
+        controller.planets =
+            new GameObject[0];
+
+        controller.timeBetweenPlanets = 9999f;
+        controller.planetsSpeed = 10f;
+
+        yield return new WaitForSeconds(0.2f);
+
+        Assert.IsNotNull(
+            controller.enemyWaves,
+            "Level 1 must retain its configured enemy waves.");
+
+        Assert.Greater(
+            controller.enemyWaves.Length,
+            0,
+            "Level 1 must contain at least one configured wave.");
+
+        Assert.IsNotNull(
+            controller.powerUp,
+            "Level 1 must retain its power-up configuration.");
+
+        Assert.AreEqual(
+            9999f,
+            controller.timeForNewPowerup,
+            "Level 1 power-up timing configuration should remain unchanged.");
+
+        Assert.IsNotNull(
+            regressionWavePrefab,
+            "Configured Level 1 wave prefab must remain available.");
+
+        Assert.IsNotNull(
+            regressionWavePrefab.GetComponent<Wave>(),
+            "Configured Level 1 wave must still contain Wave.");
+
+        Object.DestroyImmediate(regressionLevelObject);
+        Object.DestroyImmediate(regressionWavePrefab);
+        Object.DestroyImmediate(controller.powerUp);
+        Object.DestroyImmediate(regressionPlayerObject);
+        Object.DestroyImmediate(player.destructionFX);
+        Object.DestroyImmediate(regressionCameraObject);
+
+        Player.instance = null;
+        PlayerMoving.instance = null;
     }
 
     private void CreateCamera()

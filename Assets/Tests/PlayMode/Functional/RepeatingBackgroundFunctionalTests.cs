@@ -103,4 +103,42 @@ public class RepeatingBackgroundFunctionalTests
             0.001f,
             "Background reposition distance should be exactly verticalSize * 2.");
     }
+
+    [UnityTest]
+    public IEnumerator Background_RemainsFunctional_AfterLevelControllerInitialization()
+    {
+        GameObject levelControllerObject =
+            new GameObject("Regression_LevelController");
+
+        LevelController levelController =
+            levelControllerObject.AddComponent<LevelController>();
+
+        GameObject backgroundRegressionObject =
+            new GameObject("Regression_Background");
+
+        RepeatingBackground background =
+            backgroundRegressionObject.AddComponent<RepeatingBackground>();
+
+        background.verticalSize = 5f;
+
+        yield return null;
+
+        backgroundRegressionObject.transform.position =
+            new Vector3(0f, -6f, 0f);
+
+        background.SendMessage(
+            "Update",
+            SendMessageOptions.RequireReceiver);
+
+        yield return null;
+
+        Assert.AreEqual(
+            4f,
+            backgroundRegressionObject.transform.position.y,
+            0.001f,
+            "Background should retain its endless repositioning behavior after LevelController initialization.");
+
+        Object.DestroyImmediate(backgroundRegressionObject);
+        Object.DestroyImmediate(levelControllerObject);
+    }
 }
