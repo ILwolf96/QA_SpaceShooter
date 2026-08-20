@@ -5,23 +5,19 @@ using UnityEngine;
 public class Level2Controller : MonoBehaviour
 {
     [Header("Wave Pool")]
-    [Tooltip("Existing Wave prefabs that Level 2 can randomly select.")]
+    [Tooltip("Wave prefabs available for Level 2.")]
     public GameObject[] wavePool;
 
     [Header("Wave Settings")]
-    [Tooltip("Number of waves to run before the Boss.")]
     [Min(1)]
     public int numberOfWaves = 6;
 
-    [Tooltip("Multiplier applied to enemy count and speed.")]
     [Min(1f)]
     public float difficultyMultiplier = 1.5f;
 
-    [Tooltip("Additional shooting chance added to Level 2 waves.")]
     [Range(0, 100)]
     public int additionalShotChance = 10;
 
-    [Tooltip("Use ShieldedEnemy for Level 2 waves.")]
     public bool useShieldedEnemies = true;
 
     [Header("Shielded Enemy")]
@@ -33,34 +29,37 @@ public class Level2Controller : MonoBehaviour
     public Transform bossSpawnPoint;
 
     [Header("Testing")]
-    [Tooltip("When enabled, Level 2 uses testWaveIndex instead of random selection.")]
+    [Tooltip("Use testWaveIndex instead of random selection.")]
     public bool deterministicTestMode;
 
-    [Tooltip("Wave index used when deterministic test mode is enabled.")]
     [Min(0)]
     public int testWaveIndex;
 
-    private Coroutine levelRoutine;
-    private GameObject activeWave;
-    private GameObject activeBoss;
-
-    private bool levelRunning;
-
-    public bool IsRunning =>
-        levelRunning;
+    public bool IsRunning { get; private set; }
 
     public bool IsCompleted { get; private set; }
 
+    public int CurrentWaveIndex { get; private set; }
+
     public event Action LevelCompleted;
 
-    public event Action BossSpawned;
+    public event Action<GameObject> WaveStarted;
+
+    public event Action<GameObject> BossSpawned;
+
+    private Coroutine levelRoutine;
+
+    private GameObject activeWave;
+
+    private GameObject activeBoss;
 
     public void StartLevel()
     {
         StopLevel();
 
+        IsRunning = true;
         IsCompleted = false;
-        levelRunning = true;
+        CurrentWaveIndex = 0;
 
         levelRoutine =
             StartCoroutine(
@@ -69,44 +68,64 @@ public class Level2Controller : MonoBehaviour
 
     public void StopLevel()
     {
-        levelRunning = false;
+        IsRunning = false;
 
         if (levelRoutine != null)
         {
-            StopCoroutine(levelRoutine);
+            StopCoroutine(
+                levelRoutine);
+
             levelRoutine = null;
         }
 
-        activeWave = null;
+        if (activeWave != null)
+        {
+            Destroy(
+                activeWave);
+
+            activeWave = null;
+        }
+
+        if (activeBoss != null)
+        {
+            Destroy(
+                activeBoss);
+
+            activeBoss = null;
+        }
     }
 
     private IEnumerator RunLevel2()
     {
-        for (int i = 0; i < numberOfWaves; i++)
+        for (int i = 0;
+             i < numberOfWaves;
+             i++)
         {
-            if (!levelRunning)
+            if (!IsRunning)
                 yield break;
 
+            CurrentWaveIndex = i;
+
             yield return StartCoroutine(
-                SpawnLevel2Wave());
+                RunSingleWave());
         }
 
-        if (!levelRunning)
+        if (!IsRunning)
             yield break;
 
         yield return StartCoroutine(
-            SpawnAndWaitForBoss());
+            RunBossEncounter());
 
-        if (!levelRunning)
+        if (!IsRunning)
             yield break;
 
         IsCompleted = true;
-        levelRunning = false;
+        IsRunning = false;
 
         LevelCompleted?.Invoke();
     }
 
-    private IEnumerator SpawnLevel2Wave()
+    private IEnumerator RunSingleWave()
     {
         GameObject wavePrefab =
             SelectWave();
@@ -125,6 +144,8 @@ public class Level2Controller : MonoBehaviour
                 transform.position,
                 Quaternion.identity);
 
+        activeWave.SetActive(true);
+
         Wave wave =
             activeWave.GetComponent<Wave>();
 
@@ -133,23 +154,43 @@ public class Level2Controller : MonoBehaviour
             Debug.LogWarning(
                 "Level2Controller: Selected prefab does not contain Wave.");
 
-            Destroy(activeWave);
+            Destroy(
+                activeWave);
+
             activeWave = null;
 
             yield break;
         }
 
-        ConfigureWaveForLevel2(wave);
+        ConfigureWaveForLevel2(
+            wave);
 
-        // Wave destroys itself when Loop is false and all configured
-        // enemies have been spawned.
-        while (activeWave != null)
+        WaveStarted?.Invoke(
+            activeWave);
+
+        bool completed = false;
+
+        void HandleWaveCompleted(
+            Wave completedWave)
         {
-            yield return null;
+            if (completedWave == wave)
+                completed = true;
         }
+
+        wave.WaveCompleted +=
+            HandleWaveCompleted;
+
+        while (IsRunning && !completed)
+            yield return null;
+
+        wave.WaveCompleted -=
+            HandleWaveCompleted;
+
+        activeWave = null;
     }
 
-    private void ConfigureWaveForLevel2(Wave wave)
+    private void ConfigureWaveForLevel2(
+        Wave wave)
     {
         wave.Loop = false;
         wave.testMode = false;
@@ -171,14 +212,11 @@ public class Level2Controller : MonoBehaviour
         wave.speed *=
             difficultyMultiplier;
 
-        if (difficultyMultiplier > 0f)
-        {
-            wave.timeBetween =
-                Mathf.Max(
-                    0.05f,
-                    wave.timeBetween /
-                    difficultyMultiplier);
-        }
+        wave.timeBetween =
+            Mathf.Max(
+                0.05f,
+                wave.timeBetween /
+                difficultyMultiplier);
 
         wave.shooting.shotChance =
             Mathf.Clamp(
@@ -192,23 +230,67 @@ public class Level2Controller : MonoBehaviour
     {
         if (wavePool == null ||
             wavePool.Length == 0)
+        {
             return null;
+        }
 
         if (deterministicTestMode)
         {
-            int index =
-                Mathf.Clamp(
-                    testWaveIndex,
-                    0,
-                    wavePool.Length - 1);
-
-            return wavePool[index];
+            return SelectWaveForTest();
         }
 
         return wavePool[
             UnityEngine.Random.Range(
                 0,
                 wavePool.Length)];
+    }
+
+    /// <summary>
+    /// Explicit deterministic wave selection for automated tests.
+    /// </summary>
+    public GameObject SelectWaveForTest()
+    {
+        if (wavePool == null ||
+            wavePool.Length == 0)
+        {
+            return null;
+        }
+
+        int index =
+            Mathf.Clamp(
+                testWaveIndex,
+                0,
+                wavePool.Length - 1);
+
+        return wavePool[index];
+    }
+
+    private IEnumerator RunBossEncounter()
+    {
+        activeBoss = SpawnBoss();
+
+        if (activeBoss == null)
+            yield break;
+
+        bool bossDefeated = false;
+
+        Boss boss =
+            activeBoss.GetComponent<Boss>();
+
+        if (boss == null)
+            yield break;
+
+        System.Action bossDefeatedHandler =
+            () => bossDefeated = true;
+
+        boss.BossDefeated += bossDefeatedHandler;
+
+        while (IsRunning && !bossDefeated)
+            yield return null;
+
+        boss.BossDefeated -= bossDefeatedHandler;
+
+        activeBoss = null;
     }
 
     public GameObject SpawnBoss()
@@ -235,30 +317,40 @@ public class Level2Controller : MonoBehaviour
                 spawnPosition,
                 Quaternion.identity);
 
-        BossSpawned?.Invoke();
+        if (!activeBoss.activeSelf)
+            activeBoss.SetActive(true);
 
-        StartCoroutine(
-            WaitForBossDefeat(
-                activeBoss));
+        Boss boss =
+            activeBoss.GetComponent<Boss>();
+
+        if (boss == null)
+        {
+            Debug.LogError(
+                "Level2Controller: Boss prefab does not contain Boss.");
+
+            Destroy(activeBoss);
+            activeBoss = null;
+
+            return null;
+        }
+
+        BossSpawned?.Invoke(activeBoss);
 
         return activeBoss;
     }
 
-    private IEnumerator SpawnAndWaitForBoss()
+    public GameObject SelectRandomWave()
     {
-        SpawnBoss();
+        if (wavePool == null ||
+            wavePool.Length == 0)
+        {
+            return null;
+        }
 
-        while (activeBoss != null)
-            yield return null;
-    }
-
-    private IEnumerator WaitForBossDefeat(
-        GameObject bossObject)
-    {
-        while (bossObject != null)
-            yield return null;
-
-        activeBoss = null;
+        return wavePool[
+            UnityEngine.Random.Range(
+                0,
+                wavePool.Length)];
     }
 
     public GameObject GetBossPrefab()
@@ -278,17 +370,5 @@ public class Level2Controller : MonoBehaviour
             difficultyMultiplier *
             baseValue >
             baseValue;
-    }
-
-    public GameObject SelectRandomWave()
-    {
-        if (wavePool == null ||
-            wavePool.Length == 0)
-            return null;
-
-        return wavePool[
-            UnityEngine.Random.Range(
-                0,
-                wavePool.Length)];
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 /// <summary>
 /// Controls the Boss ship's health, movement, shooting and destruction.
@@ -54,6 +55,8 @@ public class Boss : MonoBehaviour
 
     public bool IsAlive => health > 0;
 
+    public event Action BossDefeated;
+
     private void Awake()
     {
         ResetHealth();
@@ -70,7 +73,7 @@ public class Boss : MonoBehaviour
         {
             Invoke(
                 nameof(AttemptToShoot),
-                Random.Range(shotTimeMin, shotTimeMax));
+                UnityEngine.Random.Range(shotTimeMin, shotTimeMax));
         }
     }
 
@@ -178,7 +181,7 @@ public class Boss : MonoBehaviour
             return;
 
         if (Projectile != null &&
-            Random.value < shotChance / 100f)
+            UnityEngine.Random.value < shotChance / 100f)
         {
             Instantiate(
                 Projectile,
@@ -187,7 +190,7 @@ public class Boss : MonoBehaviour
         }
 
         float nextAttempt =
-            Random.Range(
+            UnityEngine.Random.Range(
                 shotTimeMin,
                 shotTimeMax);
 
@@ -205,6 +208,8 @@ public class Boss : MonoBehaviour
                 transform.position,
                 Quaternion.identity);
         }
+
+        BossDefeated?.Invoke();
 
         Destroy(gameObject);
     }

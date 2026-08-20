@@ -277,6 +277,61 @@ public class LevelControllerFunctionalTests
         yield return null;
     }
 
+    [UnityTest]
+    public IEnumerator L2_RT_001_Level1Behavior_RemainsUnchanged()
+    {
+        GameObject levelObject =
+            new GameObject("L2Regression_LevelController");
+
+        LevelController controller =
+            levelObject.AddComponent<LevelController>();
+
+        GameObject wavePrefab =
+            new GameObject("L2Regression_Wave");
+
+        Wave wave =
+            wavePrefab.AddComponent<Wave>();
+
+        wave.count = 0;
+        wave.testMode = false;
+
+        controller.enemyWaves =
+            new[]
+            {
+            new EnemyWaves
+            {
+                timeToStart = 0f,
+                wave = wavePrefab
+            }
+            };
+
+        controller.StartLevel();
+
+        yield return null;
+
+        Assert.IsTrue(
+            levelObject.activeSelf,
+            "The original LevelController must remain usable after Level 2 is added.");
+
+        Assert.IsNotNull(
+            controller.enemyWaves,
+            "Level 1 wave configuration must remain available.");
+
+        Assert.AreEqual(
+            1,
+            controller.enemyWaves.Length);
+
+        Assert.AreSame(
+            wavePrefab,
+            controller.enemyWaves[0].wave);
+
+        controller.StopLevel();
+
+        Object.DestroyImmediate(levelObject);
+        Object.DestroyImmediate(wavePrefab);
+    }
+
+
     // I know I know, this in't technically a Functional Test, But I'm Tired, and still got Plenty of work, so I will cheat here once, appoliges for the lack of thhe Proficionallity 
 
     [UnityTest]

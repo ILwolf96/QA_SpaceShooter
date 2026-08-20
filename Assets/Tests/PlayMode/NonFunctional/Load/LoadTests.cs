@@ -241,6 +241,114 @@ public class LoadTests
             "Sustained projectile generation should remain stable under load.");
     }
 
+    [UnityTest]
+    public IEnumerator L2_LT_001_Level2SustainedGameplay_RemainsStable()
+    {
+        GameObject controllerObject =
+            new GameObject("Level2LoadController");
+
+        Level2Controller controller =
+            controllerObject.AddComponent<Level2Controller>();
+
+        GameObject enemyPrefab =
+            new GameObject("Level2LoadShieldedEnemy");
+
+        Enemy enemy =
+            enemyPrefab.AddComponent<Enemy>();
+
+        enemy.health = 20;
+        enemy.shotChance = 0;
+        enemy.shotTimeMin = 999f;
+        enemy.shotTimeMax = 999f;
+
+        enemyPrefab.AddComponent<FollowThePath>();
+
+        EnemyShield shield =
+            enemyPrefab.AddComponent<EnemyShield>();
+
+        shield.shieldHealth = 50;
+
+        GameObject[] waves =
+            new GameObject[6];
+
+        for (int i = 0; i < waves.Length; i++)
+        {
+            GameObject waveObject =
+                new GameObject($"Level2LoadWave_{i}");
+
+            Wave wave =
+                waveObject.AddComponent<Wave>();
+
+            wave.enemy = enemyPrefab;
+            wave.count = 3;
+            wave.speed = 5f;
+            wave.timeBetween = 0.01f;
+            wave.Loop = false;
+            wave.testMode = false;
+
+            wave.shooting =
+                new Shooting
+                {
+                    shotChance = 0,
+                    shotTimeMin = 999f,
+                    shotTimeMax = 999f
+                };
+
+            GameObject p1 =
+                new GameObject($"Level2LoadP1_{i}");
+
+            GameObject p2 =
+                new GameObject($"Level2LoadP2_{i}");
+
+            GameObject p3 =
+                new GameObject($"Level2LoadP3_{i}");
+
+            GameObject p4 =
+                new GameObject($"Level2LoadP4_{i}");
+
+            wave.pathPoints =
+                new[]
+                {
+                p1.transform,
+                p2.transform,
+                p3.transform,
+                p4.transform
+                };
+
+            waves[i] = waveObject;
+        }
+
+        controller.wavePool = waves;
+        controller.numberOfWaves = 6;
+        controller.difficultyMultiplier = 1.5f;
+        controller.shieldedEnemyPrefab = enemyPrefab;
+
+        yield return null;
+
+        controller.StartLevel();
+
+        yield return new WaitForSeconds(2f);
+
+        Assert.IsTrue(
+            controller.IsRunning ||
+            controller.IsCompleted,
+            "Level 2 should remain in a valid running or completed state under sustained load.");
+
+        Assert.IsNotNull(
+            controller.wavePool);
+
+        Assert.AreEqual(
+            6,
+            controller.wavePool.Length);
+
+        Object.DestroyImmediate(controllerObject);
+
+        foreach (GameObject wave in waves)
+            Object.DestroyImmediate(wave);
+
+        Object.DestroyImmediate(enemyPrefab);
+    }
+
     private void CreateEnemyPrefab()
     {
         enemyPrefab =

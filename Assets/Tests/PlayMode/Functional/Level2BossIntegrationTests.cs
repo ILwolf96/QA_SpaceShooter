@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -15,6 +16,9 @@ public class Level2BossIntegrationTests
 
     private GameObject shieldedEnemyPrefab;
     private GameObject bossPrefab;
+
+    private readonly List<GameObject> spawnedTestObjects =
+        new List<GameObject>();
 
     [SetUp]
     public void SetUp()
@@ -33,11 +37,36 @@ public class Level2BossIntegrationTests
 
         CreateWavePool();
 
+        // ------------------------------------------------------------
+        // Shielded enemy prefab
+        // ------------------------------------------------------------
+
         shieldedEnemyPrefab =
             new GameObject("Test_ShieldedEnemy");
 
-        shieldedEnemyPrefab.AddComponent<Enemy>();
-        shieldedEnemyPrefab.AddComponent<EnemyShield>();
+        Enemy shieldedEnemy =
+            shieldedEnemyPrefab.AddComponent<Enemy>();
+
+        shieldedEnemy.health = 20;
+        shieldedEnemy.shotChance = 0;
+        shieldedEnemy.shotTimeMin = 999f;
+        shieldedEnemy.shotTimeMax = 999f;
+
+        shieldedEnemyPrefab.AddComponent<FollowThePath>();
+
+        EnemyShield shield =
+            shieldedEnemyPrefab.AddComponent<EnemyShield>();
+
+        shield.shieldHealth = 50;
+
+        shieldedEnemyPrefab.SetActive(false);
+
+        spawnedTestObjects.Add(
+            shieldedEnemyPrefab);
+
+        // ------------------------------------------------------------
+        // Boss prefab
+        // ------------------------------------------------------------
 
         bossPrefab =
             new GameObject("Test_Boss");
@@ -46,77 +75,128 @@ public class Level2BossIntegrationTests
             bossPrefab.AddComponent<Boss>();
 
         boss.maxHealth = 5000;
+        boss.ResetHealth();
 
-        level2.wavePool = wavePrefabs;
+        boss.movementSpeed = 2.5f;
+        boss.movementDirection = Vector2.right;
+
+        boss.minX = -10f;
+        boss.maxX = 10f;
+        boss.minY = -5f;
+        boss.maxY = 5f;
+
+        bossPrefab.SetActive(false);
+
+        spawnedTestObjects.Add(
+            bossPrefab);
+
+        // ------------------------------------------------------------
+        // Level 2 configuration
+        // ------------------------------------------------------------
+
+        level2.wavePool =
+            wavePrefabs;
+
         level2.difficultyMultiplier = 1.5f;
-        level2.shieldedEnemyPrefab = shieldedEnemyPrefab;
-        level2.bossPrefab = bossPrefab;
+        level2.additionalShotChance = 0;
+        level2.useShieldedEnemies = true;
+
+        level2.shieldedEnemyPrefab =
+            shieldedEnemyPrefab;
+
+        level2.bossPrefab =
+            bossPrefab;
+
+        level2.deterministicTestMode = true;
+        level2.testWaveIndex = 0;
     }
 
     [TearDown]
     public void TearDown()
     {
-        DestroyIfExists(flowObject);
-        DestroyIfExists(level2Object);
+        if (level2 != null)
+            level2.StopLevel();
 
-        if (wavePrefabs != null)
+        if (levelFlow != null)
+            Object.DestroyImmediate(
+                levelFlow.gameObject);
+
+        foreach (GameObject obj in spawnedTestObjects)
         {
-            foreach (GameObject wave in wavePrefabs)
-                DestroyIfExists(wave);
+            if (obj != null)
+                Object.DestroyImmediate(obj);
         }
 
-        DestroyIfExists(shieldedEnemyPrefab);
-        DestroyIfExists(bossPrefab);
+        spawnedTestObjects.Clear();
+
+        wavePrefabs = null;
+        shieldedEnemyPrefab = null;
+        bossPrefab = null;
+
+        level2 = null;
+        levelFlow = null;
+        level2Object = null;
+        flowObject = null;
     }
 
     // ================================================================
     // BOS-FT-001
     // ================================================================
 
-    [Test]
-    public void BOS_FT_001_BossCanBeEncounteredInLevel2()
+    [UnityTest]
+    public IEnumerator BOS_FT_001_BossCanBeEncounteredInLevel2()
     {
-        GameObject selectedBoss =
-            level2.GetBossPrefab();
+        level2.numberOfWaves = 0;
+
+        level2.StartLevel();
+
+        yield return null;
+
+        Boss bossComponent =
+            Object.FindFirstObjectByType<Boss>();
 
         Assert.IsNotNull(
-            selectedBoss,
-            "Level 2 should provide a Boss prefab for the Boss encounter.");
+            bossComponent,
+            "Level 2 should spawn the Boss when the Level 2 wave sequence is complete.");
+
+        Object.DestroyImmediate(
+            bossComponent.gameObject);
+
+        level2.StopLevel();
     }
 
     // ================================================================
     // BOS-FT-002
     // ================================================================
 
-    [Test]
-    public void BOS_FT_002_BossCanBeDefeated()
+    [UnityTest]
+    public IEnumerator BOS_FT_002_BossCanBeDefeated()
     {
-        GameObject bossObject =
-            Object.Instantiate(level2.GetBossPrefab());
+        level2.numberOfWaves = 0;
+
+        level2.StartLevel();
+
+        yield return null;
 
         Boss boss =
-            bossObject.GetComponent<Boss>();
+            Object.FindFirstObjectByType<Boss>();
 
         Assert.IsNotNull(
             boss,
-            "The Level 2 Boss prefab must contain Boss.");
+            "Level 2 should spawn a Boss.");
 
-        boss.maxHealth = 500;
-        bossObject.SetActive(false);
-        bossObject.SetActive(true);
+        int startingHealth =
+            boss.health;
 
-        boss.GetDamage(boss.health);
+        boss.GetDamage(startingHealth);
 
-        Assert.AreEqual(
-            0,
-            boss.health,
-            "Boss health should reach zero after lethal damage.");
+        yield return null;
 
-        Assert.IsFalse(
-            boss.IsAlive,
-            "Defeated Boss should no longer report itself as alive.");
+        Assert.IsTrue(
+            boss == null,
+            "Boss should be destroyed after receiving lethal damage.");
 
-        Object.DestroyImmediate(bossObject);
+        level2.StopLevel();
     }
 
     // ================================================================
@@ -148,7 +228,8 @@ public class Level2BossIntegrationTests
         float baseDifficulty = 1f;
 
         bool harder =
-            level2.IsHarderThanNormal(baseDifficulty);
+            level2.IsHarderThanNormal(
+                baseDifficulty);
 
         Assert.IsTrue(
             harder,
@@ -159,116 +240,212 @@ public class Level2BossIntegrationTests
     // L2-FT-004
     // ================================================================
 
-    [Test]
-    public void L2_FT_004_ShieldedEnemiesAreConfiguredForLevel2()
+    [UnityTest]
+    public IEnumerator L2_FT_004_ShieldedEnemiesActuallyAppearInLevel2()
     {
-        GameObject shieldedEnemy =
-            level2.GetShieldedEnemyPrefab();
+        level2.numberOfWaves = 1;
+        level2.deterministicTestMode = true;
+        level2.testWaveIndex = 0;
+        level2.useShieldedEnemies = true;
 
-        Assert.IsNotNull(
-            shieldedEnemy,
-            "Level 2 must have a shielded enemy prefab.");
+        level2.StartLevel();
 
-        Assert.IsNotNull(
-            shieldedEnemy.GetComponent<EnemyShield>(),
-            "The Level 2 shielded enemy must contain EnemyShield.");
+        yield return null;
+        yield return null;
+
+        EnemyShield[] shields =
+            Object.FindObjectsByType<EnemyShield>(
+                FindObjectsSortMode.None);
+
+        Assert.Greater(
+            shields.Length,
+            0,
+            "Level 2 should actually spawn at least one shielded enemy.");
+
+        foreach (EnemyShield shield in shields)
+        {
+            Assert.IsNotNull(
+                shield.GetComponent<Enemy>(),
+                "A shielded Level 2 enemy must also contain Enemy.");
+        }
+
+        level2.StopLevel();
+
+        foreach (EnemyShield shield in shields)
+        {
+            if (shield != null)
+                Object.DestroyImmediate(
+                    shield.gameObject);
+        }
     }
 
     // ================================================================
     // L2-FT-005
     // ================================================================
 
-    [Test]
-    public void L2_FT_005_BossIsConfiguredForLevel2()
+    [UnityTest]
+    public IEnumerator L2_FT_005_BossActuallyAppearsInLevel2()
     {
-        GameObject configuredBoss =
-            level2.GetBossPrefab();
+        level2.numberOfWaves = 0;
+
+        level2.StartLevel();
+
+        yield return null;
+
+        Boss boss =
+            Object.FindFirstObjectByType<Boss>();
 
         Assert.IsNotNull(
-            configuredBoss,
-            "Level 2 must contain a configured Boss prefab.");
+            boss,
+            "Boss should actually appear in Level 2.");
 
-        Assert.IsNotNull(
-            configuredBoss.GetComponent<Boss>(),
-            "The configured Level 2 Boss must contain Boss.");
+        level2.StopLevel();
+
+        if (boss != null)
+            Object.DestroyImmediate(
+                boss.gameObject);
     }
 
     // ================================================================
     // L2-FT-006
     // ================================================================
 
-    [Test]
-    public void L2_FT_006_BossDefeatCanBeRecognized()
+    [UnityTest]
+    public IEnumerator L2_FT_006_BossDefeatIsRecognized()
     {
-        GameObject bossObject =
-            Object.Instantiate(level2.GetBossPrefab());
+        bool completed = false;
+
+        System.Action completedHandler =
+            () => completed = true;
+
+        level2.LevelCompleted +=
+            completedHandler;
+
+        level2.numberOfWaves = 0;
+
+        level2.StartLevel();
+
+        yield return null;
 
         Boss boss =
-            bossObject.GetComponent<Boss>();
+            Object.FindFirstObjectByType<Boss>();
 
-        boss.maxHealth = 100;
+        Assert.IsNotNull(
+            boss,
+            "Level 2 should spawn the Boss.");
 
-        bossObject.SetActive(false);
-        bossObject.SetActive(true);
+        boss.GetDamage(
+            boss.health);
 
-        boss.GetDamage(boss.health);
+        yield return null;
+        yield return null;
 
-        Assert.IsFalse(
-            boss.IsAlive,
-            "Level 2 should be able to recognize that the Boss has been defeated.");
+        Assert.IsTrue(
+            completed,
+            "Level 2 should recognize Boss defeat.");
 
-        Object.DestroyImmediate(bossObject);
+        level2.LevelCompleted -=
+            completedHandler;
+
+        level2.StopLevel();
     }
 
     // ================================================================
     // L2-FT-007
     // ================================================================
 
-    [Test]
-    public void L2_FT_007_Level2VictoryConditionCanBeTriggered()
+    [UnityTest]
+    public IEnumerator L2_FT_007_Level2VictoryConditionWorks()
     {
-        levelFlow.CompleteLevel1();
+        GameObject testFlowObject =
+            new GameObject("Test_LevelFlowController_Victory");
+
+        LevelFlowController testFlow =
+            testFlowObject.AddComponent<LevelFlowController>();
+
+        testFlow.level2Controller = level2;
+
+        level2.numberOfWaves = 0;
+        level2.StopLevel();
+
+        // Allow LevelFlowController.Start() to run first.
+        yield return null;
+
+        // Now start Level 2 after initialization has completed.
+        testFlow.StartLevel2();
+
+        Boss boss = null;
+
+        for (int i = 0; i < 10 && boss == null; i++)
+        {
+            yield return null;
+
+            boss =
+                Object.FindFirstObjectByType<Boss>();
+        }
+
+        Assert.IsNotNull(
+            boss,
+            "Level 2 should spawn the Boss.");
+
+        boss.GetDamage(boss.health);
+
+        for (int i = 0; i < 10 && !level2.IsCompleted; i++)
+        {
+            yield return null;
+        }
 
         Assert.IsTrue(
-            levelFlow.Level2Started,
-            "Level 2 must be active before testing its victory condition.");
+            level2.IsCompleted,
+            "Level 2 should complete after its Boss is defeated.");
 
-        levelFlow.CompleteLevel2();
-
-        Assert.IsTrue(
-            levelFlow.Level2Completed,
-            "Level 2 should report completion after its Boss encounter.");
+        testFlow.CompleteLevel2();
 
         Assert.IsTrue(
-            levelFlow.GameCompleted,
-            "Completing Level 2 should complete the game.");
+            testFlow.GameCompleted,
+            "Game should be completed after Level 2 victory.");
+
+        level2.StopLevel();
+
+        Object.DestroyImmediate(testFlowObject);
     }
 
     // ================================================================
     // L2-IT-001
     // ================================================================
 
-    [Test]
-    public void L2_IT_001_Level2CanProvideShieldedEnemyForWaveIntegration()
+    [UnityTest]
+    public IEnumerator L2_IT_001_Level2ControllerWaveSpawnsShieldedEnemy()
     {
-        GameObject shieldedEnemy =
-            level2.GetShieldedEnemyPrefab();
+        level2.numberOfWaves = 1;
+        level2.deterministicTestMode = true;
+        level2.testWaveIndex = 0;
+        level2.useShieldedEnemies = true;
 
-        Assert.IsNotNull(shieldedEnemy);
+        level2.StartLevel();
 
-        Enemy enemy =
-            shieldedEnemy.GetComponent<Enemy>();
+        yield return null;
+        yield return null;
 
         EnemyShield shield =
-            shieldedEnemy.GetComponent<EnemyShield>();
-
-        Assert.IsNotNull(
-            enemy,
-            "Shielded Level 2 enemies must still use Enemy.");
+            Object.FindFirstObjectByType<EnemyShield>();
 
         Assert.IsNotNull(
             shield,
-            "Shielded Level 2 enemies must use EnemyShield.");
+            "Wave spawned by Level2Controller should create an EnemyShield.");
+
+        Enemy enemy =
+            shield.GetComponent<Enemy>();
+
+        Assert.IsNotNull(
+            enemy,
+            "Shielded enemy spawned through Wave must retain Enemy.");
+
+        level2.StopLevel();
+
+        if (shield != null)
+            Object.DestroyImmediate(
+                shield.gameObject);
     }
 
     // ================================================================
@@ -281,7 +458,8 @@ public class Level2BossIntegrationTests
         GameObject configuredBoss =
             level2.GetBossPrefab();
 
-        Assert.IsNotNull(configuredBoss);
+        Assert.IsNotNull(
+            configuredBoss);
 
         Boss boss =
             configuredBoss.GetComponent<Boss>();
@@ -292,32 +470,204 @@ public class Level2BossIntegrationTests
     }
 
     // ================================================================
-    // Helpers
+    // L2-UT-001
+    // ================================================================
+
+    [Test]
+    public void L2_UT_001_Level2SelectsWaveFromConfiguredWavePool()
+    {
+        Assert.IsNotNull(
+            level2.wavePool,
+            "Level 2 wave pool must be configured.");
+
+        Assert.GreaterOrEqual(
+            level2.wavePool.Length,
+            1,
+            "Level 2 must contain at least one selectable Wave prefab.");
+
+        const int selectionCount = 100;
+
+        for (int i = 0;
+             i < selectionCount;
+             i++)
+        {
+            GameObject selected =
+                level2.SelectRandomWave();
+
+            Assert.IsNotNull(
+                selected,
+                "Random wave selection returned null.");
+
+            bool belongsToPool = false;
+
+            foreach (GameObject wave in level2.wavePool)
+            {
+                if (selected == wave)
+                {
+                    belongsToPool = true;
+                    break;
+                }
+            }
+
+            Assert.IsTrue(
+                belongsToPool,
+                "Selected wave must come from the configured Level 2 wave pool.");
+        }
+    }
+
+    // ================================================================
+    // L2-UT-002
+    // ================================================================
+
+    [Test]
+    public void L2_UT_002_DeterministicTestMode_SelectsConfiguredWave()
+    {
+        Assert.Greater(
+            level2.wavePool.Length,
+            0,
+            "Wave pool must contain at least one Wave.");
+
+        level2.deterministicTestMode = true;
+        level2.testWaveIndex = 0;
+
+        GameObject expected =
+            level2.wavePool[0];
+
+        GameObject selected =
+            level2.SelectWaveForTest();
+
+        Assert.AreSame(
+            expected,
+            selected,
+            "Deterministic test mode should select the configured test wave.");
+    }
+
+    // ================================================================
+    // Test Fixture Helpers
     // ================================================================
 
     private void CreateWavePool()
     {
-        wavePrefabs = new GameObject[6];
+        wavePrefabs =
+            new GameObject[6];
 
-        for (int i = 0; i < wavePrefabs.Length; i++)
+        for (int i = 0;
+             i < wavePrefabs.Length;
+             i++)
         {
+            // --------------------------------------------------------
+            // Enemy prefab
+            // --------------------------------------------------------
+
+            GameObject enemyPrefab =
+                new GameObject(
+                    $"Test_Level2Enemy_{i}");
+
+            Enemy enemy =
+                enemyPrefab.AddComponent<Enemy>();
+
+            enemy.health = 20;
+            enemy.shotChance = 0;
+            enemy.shotTimeMin = 999f;
+            enemy.shotTimeMax = 999f;
+
+            enemyPrefab.AddComponent<FollowThePath>();
+
+            enemyPrefab.SetActive(false);
+
+            spawnedTestObjects.Add(
+                enemyPrefab);
+
+            // --------------------------------------------------------
+            // Wave prefab
+            // --------------------------------------------------------
+
             GameObject waveObject =
-                new GameObject($"Test_Level2Wave_{i + 1}");
+                new GameObject(
+                    $"Test_Level2Wave_{i + 1}");
 
             Wave wave =
                 waveObject.AddComponent<Wave>();
 
+            wave.enemy =
+                enemyPrefab;
+
             wave.count = 1;
             wave.speed = 10f + i;
-            wave.timeBetween = 1f;
+            wave.timeBetween = 0.01f;
 
-            wavePrefabs[i] = waveObject;
+            wave.rotationByPath = false;
+            wave.Loop = false;
+            wave.testMode = false;
+
+            wave.shooting =
+                new Shooting
+                {
+                    shotChance = 0,
+                    shotTimeMin = 999f,
+                    shotTimeMax = 999f
+                };
+
+            // --------------------------------------------------------
+            // Valid path points
+            // --------------------------------------------------------
+
+            GameObject point1 =
+                new GameObject(
+                    $"Test_Wave_{i + 1}_Point1");
+
+            GameObject point2 =
+                new GameObject(
+                    $"Test_Wave_{i + 1}_Point2");
+
+            GameObject point3 =
+                new GameObject(
+                    $"Test_Wave_{i + 1}_Point3");
+
+            GameObject point4 =
+                new GameObject(
+                    $"Test_Wave_{i + 1}_Point4");
+
+            point1.transform.position =
+                new Vector3(0f, 5f, 0f);
+
+            point2.transform.position =
+                new Vector3(2f, 2f, 0f);
+
+            point3.transform.position =
+                new Vector3(-2f, -2f, 0f);
+
+            point4.transform.position =
+                new Vector3(0f, -5f, 0f);
+
+            wave.pathPoints =
+                new[]
+                {
+                    point1.transform,
+                    point2.transform,
+                    point3.transform,
+                    point4.transform
+                };
+
+            waveObject.SetActive(false);
+
+            wavePrefabs[i] =
+                waveObject;
+
+            spawnedTestObjects.Add(
+                waveObject);
+
+            spawnedTestObjects.Add(
+                point1);
+
+            spawnedTestObjects.Add(
+                point2);
+
+            spawnedTestObjects.Add(
+                point3);
+
+            spawnedTestObjects.Add(
+                point4);
         }
-    }
-
-    private static void DestroyIfExists(GameObject obj)
-    {
-        if (obj != null)
-            Object.DestroyImmediate(obj);
     }
 }

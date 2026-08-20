@@ -315,6 +315,199 @@ public class StressTests
             "Pool should retain at least its configured initial capacity.");
     }
 
+    [UnityTest]
+    public IEnumerator L2_SRT_001_HighDifficultyLevel2_RemainsStable()
+    {
+        GameObject controllerObject =
+            new GameObject("Level2StressController");
+
+        Level2Controller controller =
+            controllerObject.AddComponent<Level2Controller>();
+
+        GameObject shieldedEnemyPrefab =
+            new GameObject("Level2StressShieldedEnemy");
+
+        Enemy enemy =
+            shieldedEnemyPrefab.AddComponent<Enemy>();
+
+        enemy.health = 50;
+        enemy.shotChance = 0;
+        enemy.shotTimeMin = 999f;
+        enemy.shotTimeMax = 999f;
+
+        shieldedEnemyPrefab.AddComponent<FollowThePath>();
+
+        EnemyShield shield =
+            shieldedEnemyPrefab.AddComponent<EnemyShield>();
+
+        shield.shieldHealth = 100;
+
+        GameObject[] waves =
+            new GameObject[6];
+
+        for (int i = 0; i < waves.Length; i++)
+        {
+            GameObject waveObject =
+                new GameObject($"Level2StressWave_{i}");
+
+            Wave wave =
+                waveObject.AddComponent<Wave>();
+
+            wave.enemy =
+                shieldedEnemyPrefab;
+
+            wave.count =
+                20;
+
+            wave.speed =
+                20f;
+
+            wave.timeBetween =
+                0.01f;
+
+            wave.Loop = false;
+            wave.testMode = false;
+
+            wave.shooting =
+                new Shooting
+                {
+                    shotChance = 0,
+                    shotTimeMin = 999f,
+                    shotTimeMax = 999f
+                };
+
+            GameObject[] points =
+                new GameObject[4];
+
+            for (int p = 0; p < points.Length; p++)
+            {
+                points[p] =
+                    new GameObject(
+                        $"Level2StressWave_{i}_Point_{p}");
+            }
+
+            wave.pathPoints =
+                new Transform[]
+                {
+                    points[0].transform,
+                    points[1].transform,
+                    points[2].transform,
+                    points[3].transform
+                };
+
+            waves[i] = waveObject;
+        }
+
+        controller.wavePool = waves;
+        controller.numberOfWaves = 6;
+        controller.difficultyMultiplier = 3f;
+        controller.additionalShotChance = 30;
+        controller.shieldedEnemyPrefab =
+            shieldedEnemyPrefab;
+
+        yield return null;
+
+        controller.StartLevel();
+
+        yield return new WaitForSeconds(2f);
+
+        Assert.DoesNotThrow(
+            () =>
+            Object.FindObjectsByType<GameObject>(
+                FindObjectsSortMode.None));
+
+        Assert.IsTrue(
+            controller.IsRunning ||
+            controller.IsCompleted,
+            "High-difficulty Level 2 should remain stable under stress.");
+
+        Object.DestroyImmediate(controllerObject);
+
+        foreach (GameObject wave in waves)
+            Object.DestroyImmediate(wave);
+
+        Object.DestroyImmediate(shieldedEnemyPrefab);
+    }
+
+    [UnityTest]
+    public IEnumerator BOS_SRT_001_BossRemainsStableUnderSustainedAttacks()
+    {
+        GameObject bossObject =
+            new GameObject("BossStressTest");
+
+        Boss boss =
+            bossObject.AddComponent<Boss>();
+
+        boss.maxHealth = 100000;
+
+        // Boss.Awake() already ran when the component was added,
+        // therefore explicitly synchronize health with the new max HP.
+        boss.ResetHealth();
+
+        boss.movementSpeed = 2f;
+        boss.movementDirection = Vector2.right;
+
+        boss.minX = -10f;
+        boss.maxX = 10f;
+        boss.minY = -5f;
+        boss.maxY = 5f;
+
+        yield return null;
+
+        const int attackCount = 10000;
+        const int damagePerAttack = 1;
+
+        for (int i = 0;
+             i < attackCount;
+             i++)
+        {
+            Assert.IsNotNull(
+                boss,
+                $"Boss should still exist at attack {i}.");
+
+            boss.GetDamage(
+                damagePerAttack);
+
+            Assert.GreaterOrEqual(
+                boss.health,
+                0,
+                $"Boss health became negative at attack {i}.");
+
+            Assert.LessOrEqual(
+                boss.health,
+                boss.maxHealth,
+                $"Boss health exceeded maximum at attack {i}.");
+
+            if (i % 500 == 0)
+            {
+                Vector3 positionBeforeYield =
+                    boss.transform.position;
+
+                yield return null;
+
+                Assert.IsNotNull(
+                    boss,
+                    "Boss should remain alive during the sustained attack workload.");
+
+                Assert.AreNotEqual(
+                    positionBeforeYield,
+                    boss.transform.position,
+                    "Boss should continue moving during sustained attacks.");
+            }
+        }
+
+        Assert.IsNotNull(
+            boss,
+            "Boss should remain alive throughout the stress workload.");
+
+        Assert.Greater(
+            boss.health,
+            0,
+            "Boss should survive the sustained attack workload.");
+
+        Object.DestroyImmediate(
+            bossObject);
+    }
     private void CreateEnemyPrefab()
     {
         enemyPrefab =
