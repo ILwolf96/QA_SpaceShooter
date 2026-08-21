@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="11" result="Failed(Child)" total="11" passed="10" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.1606052">
+  <test-suite type="TestSuite" id="1020" name="QA - Final" fullname="QA - Final" runstate="Runnable" testcasecount="11" result="Failed" site="Child" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.160605" total="11" passed="10" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1016" name="PlayModeTests.dll" fullname="C:/Users/User/Documents/GitHub/QA_SpaceShooter/Library/ScriptAssemblies/PlayModeTests.dll" runstate="Runnable" testcasecount="11" result="Failed" site="Child" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.152392" total="11" passed="10" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="24940" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1001" name="BonusFunctionalTests" fullname="BonusFunctionalTests" classname="BonusFunctionalTests" runstate="Runnable" testcasecount="2" result="Failed" site="Child" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.059253" total="2" passed="1" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1002" name="Bonus_Collection_IncreasesWeaponPower" fullname="BonusFunctionalTests.Bonus_Collection_IncreasesWeaponPower" methodname="Bonus_Collection_IncreasesWeaponPower" classname="BonusFunctionalTests" runstate="Runnable" seed="592259906" result="Passed" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.027554" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1003" name="Bonus_DoesNotIncreaseWeaponPower_AboveMaximum" fullname="BonusFunctionalTests.Bonus_DoesNotIncreaseWeaponPower_AboveMaximum" methodname="Bonus_DoesNotIncreaseWeaponPower_AboveMaximum" classname="BonusFunctionalTests" runstate="Runnable" seed="1256123261" result="Failed" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.013748" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Exception] MissingComponentException: There is no 'Collider2D' attached to the "Test_Player" game object, but a script is trying to access it.
+You probably need to add a Collider2D to the game object "Test_Player". Or your script needs to check if the component is attached before using it.'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.Component.get_gameObject () (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.Component.get_tag () (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+Bonus.OnTriggerEnter2D (UnityEngine.Collider2D collision) (at Assets/Space Shooter Template FREE/Scripts/Bonus.cs:8)
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+<Bonus_DoesNotIncreaseWeaponPower_AboveMaximum>d__5:MoveNext() (at Assets/Space Shooter Template FREE/Tests/PlayMode/Functional/BonusFunctionalTests.cs:82)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[MissingComponentException: There is no 'Collider2D' attached to the "Test_Player" game object, but a script is trying to access it.
+You probably need to add a Collider2D to the game object "Test_Player". Or your script needs to check if the component is attached before using it.
+UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.Component.get_gameObject () (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.Component.get_tag () (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+Bonus.OnTriggerEnter2D (UnityEngine.Collider2D collision) (at Assets/Space Shooter Template FREE/Scripts/Bonus.cs:8)
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+<Bonus_DoesNotIncreaseWeaponPower_AboveMaximum>d__5:MoveNext() (at Assets/Space Shooter Template FREE/Tests/PlayMode/Functional/BonusFunctionalTests.cs:82)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1004" name="EnemyFunctionalTests" fullname="EnemyFunctionalTests" classname="EnemyFunctionalTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.045626" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1007" name="Enemy_LethalDamage_DestroysEnemy" fullname="EnemyFunctionalTests.Enemy_LethalDamage_DestroysEnemy" methodname="Enemy_LethalDamage_DestroysEnemy" classname="EnemyFunctionalTests" runstate="Runnable" seed="1242417196" result="Passed" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.012714" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1008" name="Enemy_NonLethalDamage_CreatesHitEffect" fullname="EnemyFunctionalTests.Enemy_NonLethalDamage_CreatesHitEffect" methodname="Enemy_NonLethalDamage_CreatesHitEffect" classname="EnemyFunctionalTests" runstate="Runnable" seed="201763875" result="Passed" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.013425" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1006" name="Enemy_NonLethalDamage_ReducesHealth" fullname="EnemyFunctionalTests.Enemy_NonLethalDamage_ReducesHealth" methodname="Enemy_NonLethalDamage_ReducesHealth" classname="EnemyFunctionalTests" runstate="Runnable" seed="153281512" result="Passed" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.007862" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1005" name="Enemy_StartsWithConfiguredHealth" fullname="EnemyFunctionalTests.Enemy_StartsWithConfiguredHealth" methodname="Enemy_StartsWithConfiguredHealth" classname="EnemyFunctionalTests" runstate="Runnable" seed="1692711488" result="Passed" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.008372" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1013" name="PlayerRegressionTests" fullname="PlayerRegressionTests" classname="PlayerRegressionTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.017672" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1015" name="Player_GetDamage_DestroysPlayer" fullname="PlayerRegressionTests.Player_GetDamage_DestroysPlayer" methodname="Player_GetDamage_DestroysPlayer" classname="PlayerRegressionTests" runstate="Runnable" seed="1313645553" result="Passed" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.008193" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1014" name="Player_Instance_IsAssigned" fullname="PlayerRegressionTests.Player_Instance_IsAssigned" methodname="Player_Instance_IsAssigned" classname="PlayerRegressionTests" runstate="Runnable" seed="1799927297" result="Passed" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.006900" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1009" name="PoolingControllerFunctionalTests" fullname="PoolingControllerFunctionalTests" classname="PoolingControllerFunctionalTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.026258" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1012" name="GetPoolingObject_AddsObject_WhenPoolIsExhausted" fullname="PoolingControllerFunctionalTests.GetPoolingObject_AddsObject_WhenPoolIsExhausted" methodname="GetPoolingObject_AddsObject_WhenPoolIsExhausted" classname="PoolingControllerFunctionalTests" runstate="Runnable" seed="1716634984" result="Passed" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.009495" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1011" name="GetPoolingObject_ReturnsInactivePooledObject" fullname="PoolingControllerFunctionalTests.GetPoolingObject_ReturnsInactivePooledObject" methodname="GetPoolingObject_ReturnsInactivePooledObject" classname="PoolingControllerFunctionalTests" runstate="Runnable" seed="1629052392" result="Passed" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.006889" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1010" name="PoolingController_CreatesConfiguredInitialPool" fullname="PoolingControllerFunctionalTests.PoolingController_CreatesConfiguredInitialPool" methodname="PoolingController_CreatesConfiguredInitialPool" classname="PoolingControllerFunctionalTests" runstate="Runnable" seed="666126748" result="Passed" start-time="2026-08-19 16:22:00Z" end-time="2026-08-19 16:22:00Z" duration="0.007041" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Saving results to: C:/Users/User/AppData/LocalLow/DefaultCompany/QA - Final\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

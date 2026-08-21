@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="10" result="Failed(Child)" total="10" passed="0" failed="10" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-08-20 13:10:57Z" end-time="2026-08-20 13:10:57Z" duration="0.0720751">
+  <test-suite type="TestSuite" id="1145" name="QA - Final" fullname="QA - Final" runstate="Runnable" testcasecount="118" result="Failed" site="Child" start-time="2026-08-20 13:10:57Z" end-time="2026-08-20 13:10:57Z" duration="0.072075" total="10" passed="0" failed="10" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1141" name="PlayModeTests.dll" fullname="C:/Users/User/Documents/GitHub/QA_SpaceShooter/Library/ScriptAssemblies/PlayModeTests.dll" runstate="Runnable" testcasecount="118" result="Failed" site="Child" start-time="2026-08-20 13:10:57Z" end-time="2026-08-20 13:10:57Z" duration="0.061429" total="10" passed="0" failed="10" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="24940" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1048" name="Level2BossIntegrationTests" fullname="Level2BossIntegrationTests" classname="Level2BossIntegrationTests" runstate="Runnable" testcasecount="10" result="Failed" site="Child" start-time="2026-08-20 13:10:57Z" end-time="2026-08-20 13:10:57Z" duration="0.057470" total="10" passed="0" failed="10" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1049" name="BOS_FT_001_BossCanBeEncounteredInLevel2" fullname="Level2BossIntegrationTests.BOS_FT_001_BossCanBeEncounteredInLevel2" methodname="BOS_FT_001_BossCanBeEncounteredInLevel2" classname="Level2BossIntegrationTests" runstate="Runnable" seed="2047427553" result="Failed" start-time="2026-08-20 13:10:57Z" end-time="2026-08-20 13:10:57Z" duration="0.022734" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Level 2 should provide a Boss prefab for the Boss encounter.
+  Expected: not null
+  But was:  null
+]]></message>
+            <stack-trace><![CDATA[at Level2BossIntegrationTests.BOS_FT_001_BossCanBeEncounteredInLevel2 () [0x0000b] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\Level2BossIntegrationTests.cs:82
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1050" name="BOS_FT_002_BossCanBeDefeated" fullname="Level2BossIntegrationTests.BOS_FT_002_BossCanBeDefeated" methodname="BOS_FT_002_BossCanBeDefeated" classname="Level2BossIntegrationTests" runstate="Runnable" seed="428289906" result="Failed" label="Error" start-time="2026-08-20 13:10:57Z" end-time="2026-08-20 13:10:57Z" duration="0.002179" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[System.ArgumentException : The Object you want to instantiate is null.]]></message>
+            <stack-trace><![CDATA[  at UnityEngine.Object.Instantiate[T] (T original) [0x0003d] in <612ea0208cc847f49d539e6511ed3cd5>:0 
+  at Level2BossIntegrationTests.BOS_FT_002_BossCanBeDefeated () [0x00000] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\Level2BossIntegrationTests.cs:94 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <13c0c460649d4ce49f991e2c222fa635>:0 ]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1051" name="L2_FT_002_Level1CanTransitionToLevel2" fullname="Level2BossIntegrationTests.L2_FT_002_Level1CanTransitionToLevel2" methodname="L2_FT_002_Level1CanTransitionToLevel2" classname="Level2BossIntegrationTests" runstate="Runnable" seed="2073893447" result="Failed" start-time="2026-08-20 13:10:57Z" end-time="2026-08-20 13:10:57Z" duration="0.001445" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Completing Level 1 should start Level 2.
+  Expected: True
+  But was:  False
+]]></message>
+            <stack-trace><![CDATA[at Level2BossIntegrationTests.L2_FT_002_Level1CanTransitionToLevel2 () [0x0000b] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\Level2BossIntegrationTests.cs:131
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1052" name="L2_FT_003_Level2UsesHarderSettings" fullname="Level2BossIntegrationTests.L2_FT_003_Level2UsesHarderSettings" methodname="L2_FT_003_Level2UsesHarderSettings" classname="Level2BossIntegrationTests" runstate="Runnable" seed="530599680" result="Failed" start-time="2026-08-20 13:10:57Z" end-time="2026-08-20 13:10:57Z" duration="0.000421" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Level 2 should use harder settings than the normal baseline.
+  Expected: True
+  But was:  False
+]]></message>
+            <stack-trace><![CDATA[at Level2BossIntegrationTests.L2_FT_003_Level2UsesHarderSettings () [0x00012] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\Level2BossIntegrationTests.cs:153
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1053" name="L2_FT_004_ShieldedEnemiesAreConfiguredForLevel2" fullname="Level2BossIntegrationTests.L2_FT_004_ShieldedEnemiesAreConfiguredForLevel2" methodname="L2_FT_004_ShieldedEnemiesAreConfiguredForLevel2" classname="Level2BossIntegrationTests" runstate="Runnable" seed="933644181" result="Failed" start-time="2026-08-20 13:10:57Z" end-time="2026-08-20 13:10:57Z" duration="0.000517" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Level 2 must have a shielded enemy prefab.
+  Expected: not null
+  But was:  null
+]]></message>
+            <stack-trace><![CDATA[at Level2BossIntegrationTests.L2_FT_004_ShieldedEnemiesAreConfiguredForLevel2 () [0x0000b] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\Level2BossIntegrationTests.cs:168
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1054" name="L2_FT_005_BossIsConfiguredForLevel2" fullname="Level2BossIntegrationTests.L2_FT_005_BossIsConfiguredForLevel2" methodname="L2_FT_005_BossIsConfiguredForLevel2" classname="Level2BossIntegrationTests" runstate="Runnable" seed="318268200" result="Failed" start-time="2026-08-20 13:10:57Z" end-time="2026-08-20 13:10:57Z" duration="0.000416" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Level 2 must contain a configured Boss prefab.
+  Expected: not null
+  But was:  null
+]]></message>
+            <stack-trace><![CDATA[at Level2BossIntegrationTests.L2_FT_005_BossIsConfiguredForLevel2 () [0x0000b] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\Level2BossIntegrationTests.cs:187
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1055" name="L2_FT_006_BossDefeatCanBeRecognized" fullname="Level2BossIntegrationTests.L2_FT_006_BossDefeatCanBeRecognized" methodname="L2_FT_006_BossDefeatCanBeRecognized" classname="Level2BossIntegrationTests" runstate="Runnable" seed="1494836284" result="Failed" label="Error" start-time="2026-08-20 13:10:57Z" end-time="2026-08-20 13:10:57Z" duration="0.000443" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[System.ArgumentException : The Object you want to instantiate is null.]]></message>
+            <stack-trace><![CDATA[  at UnityEngine.Object.Instantiate[T] (T original) [0x0003d] in <612ea0208cc847f49d539e6511ed3cd5>:0 
+  at Level2BossIntegrationTests.L2_FT_006_BossDefeatCanBeRecognized () [0x00000] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\Level2BossIntegrationTests.cs:203 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <13c0c460649d4ce49f991e2c222fa635>:0 ]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1056" name="L2_FT_007_Level2VictoryConditionCanBeTriggered" fullname="Level2BossIntegrationTests.L2_FT_007_Level2VictoryConditionCanBeTriggered" methodname="L2_FT_007_Level2VictoryConditionCanBeTriggered" classname="Level2BossIntegrationTests" runstate="Runnable" seed="2068181870" result="Failed" start-time="2026-08-20 13:10:57Z" end-time="2026-08-20 13:10:57Z" duration="0.000416" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Level 2 must be active before testing its victory condition.
+  Expected: True
+  But was:  False
+]]></message>
+            <stack-trace><![CDATA[at Level2BossIntegrationTests.L2_FT_007_Level2VictoryConditionCanBeTriggered () [0x0000b] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\Level2BossIntegrationTests.cs:232
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1057" name="L2_IT_001_Level2CanProvideShieldedEnemyForWaveIntegration" fullname="Level2BossIntegrationTests.L2_IT_001_Level2CanProvideShieldedEnemyForWaveIntegration" methodname="L2_IT_001_Level2CanProvideShieldedEnemyForWaveIntegration" classname="Level2BossIntegrationTests" runstate="Runnable" seed="379299439" result="Failed" start-time="2026-08-20 13:10:57Z" end-time="2026-08-20 13:10:57Z" duration="0.000462" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: not null
+  But was:  null
+]]></message>
+            <stack-trace><![CDATA[at Level2BossIntegrationTests.L2_IT_001_Level2CanProvideShieldedEnemyForWaveIntegration () [0x0000b] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\Level2BossIntegrationTests.cs:257
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1058" name="L2_IT_002_Level2CanProvideBossForLevelIntegration" fullname="Level2BossIntegrationTests.L2_IT_002_Level2CanProvideBossForLevelIntegration" methodname="L2_IT_002_Level2CanProvideBossForLevelIntegration" classname="Level2BossIntegrationTests" runstate="Runnable" seed="684037589" result="Failed" start-time="2026-08-20 13:10:57Z" end-time="2026-08-20 13:10:57Z" duration="0.000398" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: not null
+  But was:  null
+]]></message>
+            <stack-trace><![CDATA[at Level2BossIntegrationTests.L2_IT_002_Level2CanProvideBossForLevelIntegration () [0x0000b] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\Level2BossIntegrationTests.cs:284
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Saving results to: C:/Users/User/AppData/LocalLow/DefaultCompany/QA - Final\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

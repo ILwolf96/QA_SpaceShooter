@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="8" result="Failed(Child)" total="8" passed="7" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-08-20 12:25:44Z" end-time="2026-08-20 12:25:45Z" duration="1.2147563">
+  <test-suite type="TestSuite" id="1134" name="QA - Final" fullname="QA - Final" runstate="Runnable" testcasecount="108" result="Failed" site="Child" start-time="2026-08-20 12:25:44Z" end-time="2026-08-20 12:25:45Z" duration="1.214756" total="8" passed="7" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1130" name="PlayModeTests.dll" fullname="C:/Users/User/Documents/GitHub/QA_SpaceShooter/Library/ScriptAssemblies/PlayModeTests.dll" runstate="Runnable" testcasecount="108" result="Failed" site="Child" start-time="2026-08-20 12:25:44Z" end-time="2026-08-20 12:25:45Z" duration="1.206173" total="8" passed="7" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="24940" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1005" name="BossTests" fullname="BossTests" classname="BossTests" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-08-20 12:25:44Z" end-time="2026-08-20 12:25:45Z" duration="1.202219" total="8" passed="7" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1006" name="BOS_UT_001_BossInitializesWithConfiguredHP" fullname="BossTests.BOS_UT_001_BossInitializesWithConfiguredHP" methodname="BOS_UT_001_BossInitializesWithConfiguredHP" classname="BossTests" runstate="Runnable" seed="495633441" result="Passed" start-time="2026-08-20 12:25:44Z" end-time="2026-08-20 12:25:44Z" duration="0.023719" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1007" name="BOS_UT_002_BossReceivesDamage" fullname="BossTests.BOS_UT_002_BossReceivesDamage" methodname="BOS_UT_002_BossReceivesDamage" classname="BossTests" runstate="Runnable" seed="862746976" result="Passed" start-time="2026-08-20 12:25:44Z" end-time="2026-08-20 12:25:44Z" duration="0.002165" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1008" name="BOS_UT_003_BossSurvivesWhileHealthAboveZero" fullname="BossTests.BOS_UT_003_BossSurvivesWhileHealthAboveZero" methodname="BOS_UT_003_BossSurvivesWhileHealthAboveZero" classname="BossTests" runstate="Runnable" seed="1182023692" result="Passed" start-time="2026-08-20 12:25:44Z" end-time="2026-08-20 12:25:44Z" duration="0.000492" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1009" name="BOS_UT_004_BossDiesAtZeroHealth" fullname="BossTests.BOS_UT_004_BossDiesAtZeroHealth" methodname="BOS_UT_004_BossDiesAtZeroHealth" classname="BossTests" runstate="Runnable" seed="946834104" result="Failed" start-time="2026-08-20 12:25:44Z" end-time="2026-08-20 12:25:44Z" duration="0.003715" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Boss health should reach zero after lethal damage.
+  Expected: 0
+  But was:  4900
+]]></message>
+            <stack-trace><![CDATA[at BossTests.BOS_UT_004_BossDiesAtZeroHealth () [0x00032] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\BossTests.cs:120
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1010" name="BOS_UT_005_BossMovesHorizontally" fullname="BossTests.BOS_UT_005_BossMovesHorizontally" methodname="BOS_UT_005_BossMovesHorizontally" classname="BossTests" runstate="Runnable" seed="957394816" result="Passed" start-time="2026-08-20 12:25:44Z" end-time="2026-08-20 12:25:44Z" duration="0.214607" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1011" name="BOS_UT_006_BossMovesVertically" fullname="BossTests.BOS_UT_006_BossMovesVertically" methodname="BOS_UT_006_BossMovesVertically" classname="BossTests" runstate="Runnable" seed="1658545273" result="Passed" start-time="2026-08-20 12:25:44Z" end-time="2026-08-20 12:25:44Z" duration="0.209528" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1012" name="BOS_UT_007_BossMovesDiagonally" fullname="BossTests.BOS_UT_007_BossMovesDiagonally" methodname="BOS_UT_007_BossMovesDiagonally" classname="BossTests" runstate="Runnable" seed="705628140" result="Passed" start-time="2026-08-20 12:25:44Z" end-time="2026-08-20 12:25:44Z" duration="0.210772" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1013" name="BOS_UT_008_BossStaysWithinAllowedGameplayArea" fullname="BossTests.BOS_UT_008_BossStaysWithinAllowedGameplayArea" methodname="BOS_UT_008_BossStaysWithinAllowedGameplayArea" classname="BossTests" runstate="Runnable" seed="2105012406" result="Passed" start-time="2026-08-20 12:25:44Z" end-time="2026-08-20 12:25:45Z" duration="0.511228" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Saving results to: C:/Users/User/AppData/LocalLow/DefaultCompany/QA - Final\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

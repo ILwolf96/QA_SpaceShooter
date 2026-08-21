@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="11" result="Failed(Child)" total="11" passed="4" failed="7" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-08-20 11:06:13Z" end-time="2026-08-20 11:06:14Z" duration="0.1523924">
+  <test-suite type="TestSuite" id="1125" name="QA - Final" fullname="QA - Final" runstate="Runnable" testcasecount="100" result="Failed" site="Child" start-time="2026-08-20 11:06:13Z" end-time="2026-08-20 11:06:14Z" duration="0.152392" total="11" passed="4" failed="7" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1121" name="PlayModeTests.dll" fullname="C:/Users/User/Documents/GitHub/QA_SpaceShooter/Library/ScriptAssemblies/PlayModeTests.dll" runstate="Runnable" testcasecount="100" result="Failed" site="Child" start-time="2026-08-20 11:06:13Z" end-time="2026-08-20 11:06:14Z" duration="0.143302" total="11" passed="4" failed="7" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="24940" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1020" name="EnemyShieldTests" fullname="EnemyShieldTests" classname="EnemyShieldTests" runstate="Runnable" testcasecount="11" result="Failed" site="Child" start-time="2026-08-20 11:06:13Z" end-time="2026-08-20 11:06:14Z" duration="0.139504" total="11" passed="4" failed="7" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1028" name="SHD_FT_001_PlayerProjectileDamagesShieldedEnemy" fullname="EnemyShieldTests.SHD_FT_001_PlayerProjectileDamagesShieldedEnemy" methodname="SHD_FT_001_PlayerProjectileDamagesShieldedEnemy" classname="EnemyShieldTests" runstate="Runnable" seed="2108162719" result="Failed" start-time="2026-08-20 11:06:13Z" end-time="2026-08-20 11:06:13Z" duration="0.098816" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Player projectile should damage the enemy shield.
+  Expected: less than 20
+  But was:  20
+]]></message>
+            <stack-trace><![CDATA[at EnemyShieldTests+<SHD_FT_001_PlayerProjectileDamagesShieldedEnemy>d__12.MoveNext () [0x000a3] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\EnemyShieldTests.cs:234
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1029" name="SHD_RT_001_UnshieldedEnemyRetainsExistingDamageBehavior" fullname="EnemyShieldTests.SHD_RT_001_UnshieldedEnemyRetainsExistingDamageBehavior" methodname="SHD_RT_001_UnshieldedEnemyRetainsExistingDamageBehavior" classname="EnemyShieldTests" runstate="Runnable" seed="111844815" result="Passed" start-time="2026-08-20 11:06:14Z" end-time="2026-08-20 11:06:14Z" duration="0.009382" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1021" name="SHD_UT_001_ShieldInitializesWithConfiguredHealth" fullname="EnemyShieldTests.SHD_UT_001_ShieldInitializesWithConfiguredHealth" methodname="SHD_UT_001_ShieldInitializesWithConfiguredHealth" classname="EnemyShieldTests" runstate="Runnable" seed="1153866860" result="Passed" start-time="2026-08-20 11:06:14Z" end-time="2026-08-20 11:06:14Z" duration="0.000339" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1022" name="SHD_UT_002_ShieldAbsorbsIncomingDamage" fullname="EnemyShieldTests.SHD_UT_002_ShieldAbsorbsIncomingDamage" methodname="SHD_UT_002_ShieldAbsorbsIncomingDamage" classname="EnemyShieldTests" runstate="Runnable" seed="910388843" result="Failed" start-time="2026-08-20 11:06:14Z" end-time="2026-08-20 11:06:14Z" duration="0.000589" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Shield HP should decrease when damage is absorbed.
+  Expected: less than 20
+  But was:  20
+]]></message>
+            <stack-trace><![CDATA[at EnemyShieldTests.SHD_UT_002_ShieldAbsorbsIncomingDamage () [0x00036] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\EnemyShieldTests.cs:82
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1023" name="SHD_UT_003_EnemyHealthRemainsUnchangedWhileShieldIsActive" fullname="EnemyShieldTests.SHD_UT_003_EnemyHealthRemainsUnchangedWhileShieldIsActive" methodname="SHD_UT_003_EnemyHealthRemainsUnchangedWhileShieldIsActive" classname="EnemyShieldTests" runstate="Runnable" seed="1631950592" result="Failed" start-time="2026-08-20 11:06:14Z" end-time="2026-08-20 11:06:14Z" duration="0.000853" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Enemy HP should remain unchanged while the shield absorbs damage.
+  Expected: 20
+  But was:  15
+]]></message>
+            <stack-trace><![CDATA[at EnemyShieldTests.SHD_UT_003_EnemyHealthRemainsUnchangedWhileShieldIsActive () [0x00025] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\EnemyShieldTests.cs:105
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1024" name="SHD_UT_004_ShieldDecreasesByIncomingDamage" fullname="EnemyShieldTests.SHD_UT_004_ShieldDecreasesByIncomingDamage" methodname="SHD_UT_004_ShieldDecreasesByIncomingDamage" classname="EnemyShieldTests" runstate="Runnable" seed="2052595425" result="Failed" start-time="2026-08-20 11:06:14Z" end-time="2026-08-20 11:06:14Z" duration="0.000354" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Shield HP should decrease by absorbed damage.
+  Expected: 13
+  But was:  20
+]]></message>
+            <stack-trace><![CDATA[at EnemyShieldTests.SHD_UT_004_ShieldDecreasesByIncomingDamage () [0x0001c] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\EnemyShieldTests.cs:125
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1025" name="SHD_UT_005_ShieldBreaksAtZero" fullname="EnemyShieldTests.SHD_UT_005_ShieldBreaksAtZero" methodname="SHD_UT_005_ShieldBreaksAtZero" classname="EnemyShieldTests" runstate="Runnable" seed="368952251" result="Failed" start-time="2026-08-20 11:06:14Z" end-time="2026-08-20 11:06:14Z" duration="0.000451" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: 0
+  But was:  10
+]]></message>
+            <stack-trace><![CDATA[at EnemyShieldTests.SHD_UT_005_ShieldBreaksAtZero () [0x0001d] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\EnemyShieldTests.cs:145
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1026" name="SHD_UT_006_BrokenShieldNoLongerAbsorbsDamage" fullname="EnemyShieldTests.SHD_UT_006_BrokenShieldNoLongerAbsorbsDamage" methodname="SHD_UT_006_BrokenShieldNoLongerAbsorbsDamage" classname="EnemyShieldTests" runstate="Runnable" seed="1728946529" result="Failed" start-time="2026-08-20 11:06:14Z" end-time="2026-08-20 11:06:14Z" duration="0.000484" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: 0
+  But was:  10
+]]></message>
+            <stack-trace><![CDATA[at EnemyShieldTests.SHD_UT_006_BrokenShieldNoLongerAbsorbsDamage () [0x00040] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\EnemyShieldTests.cs:176
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1027" name="SHD_UT_007_ExcessDamageIsReturnedToEnemy" fullname="EnemyShieldTests.SHD_UT_007_ExcessDamageIsReturnedToEnemy" methodname="SHD_UT_007_ExcessDamageIsReturnedToEnemy" classname="EnemyShieldTests" runstate="Runnable" seed="503604051" result="Failed" start-time="2026-08-20 11:06:14Z" end-time="2026-08-20 11:06:14Z" duration="0.000431" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Damage exceeding remaining shield HP should pass through.
+  Expected: 5
+  But was:  15
+]]></message>
+            <stack-trace><![CDATA[at EnemyShieldTests.SHD_UT_007_ExcessDamageIsReturnedToEnemy () [0x0001b] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\EnemyShieldTests.cs:196
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1030" name="Shield_CannotBecomeNegative" fullname="EnemyShieldTests.Shield_CannotBecomeNegative" methodname="Shield_CannotBecomeNegative" classname="EnemyShieldTests" runstate="Runnable" seed="1199263126" result="Passed" start-time="2026-08-20 11:06:14Z" end-time="2026-08-20 11:06:14Z" duration="0.000495" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1031" name="Shield_ZeroDamageDoesNotChangeShieldHealth" fullname="EnemyShieldTests.Shield_ZeroDamageDoesNotChangeShieldHealth" methodname="Shield_ZeroDamageDoesNotChangeShieldHealth" classname="EnemyShieldTests" runstate="Runnable" seed="1344815395" result="Passed" start-time="2026-08-20 11:06:14Z" end-time="2026-08-20 11:06:14Z" duration="0.000319" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Saving results to: C:/Users/User/AppData/LocalLow/DefaultCompany/QA - Final\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

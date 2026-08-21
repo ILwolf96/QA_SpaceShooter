@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="11" result="Passed" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-08-20 12:05:37Z" end-time="2026-08-20 12:05:37Z" duration="0.0801609">
+  <test-suite type="TestSuite" id="1125" name="QA - Final" fullname="QA - Final" runstate="Runnable" testcasecount="100" result="Passed" start-time="2026-08-20 12:05:37Z" end-time="2026-08-20 12:05:37Z" duration="0.080161" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1121" name="PlayModeTests.dll" fullname="C:/Users/User/Documents/GitHub/QA_SpaceShooter/Library/ScriptAssemblies/PlayModeTests.dll" runstate="Runnable" testcasecount="100" result="Passed" start-time="2026-08-20 12:05:37Z" end-time="2026-08-20 12:05:37Z" duration="0.071697" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="24940" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestFixture" id="1020" name="EnemyShieldTests" fullname="EnemyShieldTests" classname="EnemyShieldTests" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-08-20 12:05:37Z" end-time="2026-08-20 12:05:37Z" duration="0.068063" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1028" name="SHD_FT_001_PlayerProjectileDamagesShieldedEnemy" fullname="EnemyShieldTests.SHD_FT_001_PlayerProjectileDamagesShieldedEnemy" methodname="SHD_FT_001_PlayerProjectileDamagesShieldedEnemy" classname="EnemyShieldTests" runstate="Runnable" seed="1785239751" result="Passed" start-time="2026-08-20 12:05:37Z" end-time="2026-08-20 12:05:37Z" duration="0.038870" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1029" name="SHD_RT_001_UnshieldedEnemyRetainsExistingDamageBehavior" fullname="EnemyShieldTests.SHD_RT_001_UnshieldedEnemyRetainsExistingDamageBehavior" methodname="SHD_RT_001_UnshieldedEnemyRetainsExistingDamageBehavior" classname="EnemyShieldTests" runstate="Runnable" seed="2141411569" result="Passed" start-time="2026-08-20 12:05:37Z" end-time="2026-08-20 12:05:37Z" duration="0.002412" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1021" name="SHD_UT_001_ShieldInitializesWithConfiguredHealth" fullname="EnemyShieldTests.SHD_UT_001_ShieldInitializesWithConfiguredHealth" methodname="SHD_UT_001_ShieldInitializesWithConfiguredHealth" classname="EnemyShieldTests" runstate="Runnable" seed="1987745194" result="Passed" start-time="2026-08-20 12:05:37Z" end-time="2026-08-20 12:05:37Z" duration="0.000252" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1022" name="SHD_UT_002_ShieldAbsorbsIncomingDamage" fullname="EnemyShieldTests.SHD_UT_002_ShieldAbsorbsIncomingDamage" methodname="SHD_UT_002_ShieldAbsorbsIncomingDamage" classname="EnemyShieldTests" runstate="Runnable" seed="2002440836" result="Passed" start-time="2026-08-20 12:05:37Z" end-time="2026-08-20 12:05:37Z" duration="0.000239" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1023" name="SHD_UT_003_EnemyHealthRemainsUnchangedWhileShieldIsActive" fullname="EnemyShieldTests.SHD_UT_003_EnemyHealthRemainsUnchangedWhileShieldIsActive" methodname="SHD_UT_003_EnemyHealthRemainsUnchangedWhileShieldIsActive" classname="EnemyShieldTests" runstate="Runnable" seed="2087374394" result="Passed" start-time="2026-08-20 12:05:37Z" end-time="2026-08-20 12:05:37Z" duration="0.000218" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1024" name="SHD_UT_004_ShieldDecreasesByIncomingDamage" fullname="EnemyShieldTests.SHD_UT_004_ShieldDecreasesByIncomingDamage" methodname="SHD_UT_004_ShieldDecreasesByIncomingDamage" classname="EnemyShieldTests" runstate="Runnable" seed="1260951422" result="Passed" start-time="2026-08-20 12:05:37Z" end-time="2026-08-20 12:05:37Z" duration="0.000226" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1025" name="SHD_UT_005_ShieldBreaksAtZero" fullname="EnemyShieldTests.SHD_UT_005_ShieldBreaksAtZero" methodname="SHD_UT_005_ShieldBreaksAtZero" classname="EnemyShieldTests" runstate="Runnable" seed="1868016463" result="Passed" start-time="2026-08-20 12:05:37Z" end-time="2026-08-20 12:05:37Z" duration="0.000439" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1026" name="SHD_UT_006_BrokenShieldNoLongerAbsorbsDamage" fullname="EnemyShieldTests.SHD_UT_006_BrokenShieldNoLongerAbsorbsDamage" methodname="SHD_UT_006_BrokenShieldNoLongerAbsorbsDamage" classname="EnemyShieldTests" runstate="Runnable" seed="1886149332" result="Passed" start-time="2026-08-20 12:05:37Z" end-time="2026-08-20 12:05:37Z" duration="0.000236" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1027" name="SHD_UT_007_ExcessDamageIsReturnedToEnemy" fullname="EnemyShieldTests.SHD_UT_007_ExcessDamageIsReturnedToEnemy" methodname="SHD_UT_007_ExcessDamageIsReturnedToEnemy" classname="EnemyShieldTests" runstate="Runnable" seed="712200007" result="Passed" start-time="2026-08-20 12:05:37Z" end-time="2026-08-20 12:05:37Z" duration="0.000212" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1030" name="Shield_CannotBecomeNegative" fullname="EnemyShieldTests.Shield_CannotBecomeNegative" methodname="Shield_CannotBecomeNegative" classname="EnemyShieldTests" runstate="Runnable" seed="720936550" result="Passed" start-time="2026-08-20 12:05:37Z" end-time="2026-08-20 12:05:37Z" duration="0.000312" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1031" name="Shield_ZeroDamageDoesNotChangeShieldHealth" fullname="EnemyShieldTests.Shield_ZeroDamageDoesNotChangeShieldHealth" methodname="Shield_ZeroDamageDoesNotChangeShieldHealth" classname="EnemyShieldTests" runstate="Runnable" seed="1580607273" result="Passed" start-time="2026-08-20 12:05:37Z" end-time="2026-08-20 12:05:37Z" duration="0.000217" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Saving results to: C:/Users/User/AppData/LocalLow/DefaultCompany/QA - Final\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

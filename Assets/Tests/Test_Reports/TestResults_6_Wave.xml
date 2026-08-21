@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="7" result="Failed(Child)" total="7" passed="3" failed="4" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-08-19 21:00:34Z" end-time="2026-08-19 21:00:38Z" duration="4.6686779">
+  <test-suite type="TestSuite" id="1078" name="QA - Final" fullname="QA - Final" runstate="Runnable" testcasecount="59" result="Failed" site="Child" start-time="2026-08-19 21:00:34Z" end-time="2026-08-19 21:00:38Z" duration="4.668678" total="7" passed="3" failed="4" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1074" name="PlayModeTests.dll" fullname="C:/Users/User/Documents/GitHub/QA_SpaceShooter/Library/ScriptAssemblies/PlayModeTests.dll" runstate="Runnable" testcasecount="59" result="Failed" site="Child" start-time="2026-08-19 21:00:34Z" end-time="2026-08-19 21:00:38Z" duration="4.659471" total="7" passed="3" failed="4" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="24940" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1063" name="WaveFunctionalTests" fullname="WaveFunctionalTests" classname="WaveFunctionalTests" runstate="Runnable" testcasecount="7" result="Failed" site="Child" start-time="2026-08-19 21:00:34Z" end-time="2026-08-19 21:00:38Z" duration="4.656118" total="7" passed="3" failed="4" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1070" name="TestMode_RegeneratesWaveAfterThreeSeconds" fullname="WaveFunctionalTests.TestMode_RegeneratesWaveAfterThreeSeconds" methodname="TestMode_RegeneratesWaveAfterThreeSeconds" classname="WaveFunctionalTests" runstate="Runnable" seed="988376612" result="Passed" start-time="2026-08-19 21:00:34Z" end-time="2026-08-19 21:00:37Z" duration="3.376834" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1067" name="Wave_AppliesLoopSettingToFollowThePath" fullname="WaveFunctionalTests.Wave_AppliesLoopSettingToFollowThePath" methodname="Wave_AppliesLoopSettingToFollowThePath" classname="WaveFunctionalTests" runstate="Runnable" seed="482972776" result="Failed" start-time="2026-08-19 21:00:37Z" end-time="2026-08-19 21:00:37Z" duration="0.214724" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: False
+  But was:  True
+]]></message>
+            <stack-trace><![CDATA[at WaveFunctionalTests+<Wave_AppliesLoopSettingToFollowThePath>d__11.MoveNext () [0x0005b] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Space Shooter Template FREE\Tests\PlayMode\Functional\WaveFunctionalTests.cs:171
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1068" name="Wave_AppliesPathToFollowThePath" fullname="WaveFunctionalTests.Wave_AppliesPathToFollowThePath" methodname="Wave_AppliesPathToFollowThePath" classname="WaveFunctionalTests" runstate="Runnable" seed="921238905" result="Passed" start-time="2026-08-19 21:00:37Z" end-time="2026-08-19 21:00:37Z" duration="0.210359" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1066" name="Wave_AppliesRotationSettingToFollowThePath" fullname="WaveFunctionalTests.Wave_AppliesRotationSettingToFollowThePath" methodname="Wave_AppliesRotationSettingToFollowThePath" classname="WaveFunctionalTests" runstate="Runnable" seed="545855200" result="Failed" start-time="2026-08-19 21:00:37Z" end-time="2026-08-19 21:00:38Z" duration="0.209267" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: True
+  But was:  False
+]]></message>
+            <stack-trace><![CDATA[at WaveFunctionalTests+<Wave_AppliesRotationSettingToFollowThePath>d__10.MoveNext () [0x0005b] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Space Shooter Template FREE\Tests\PlayMode\Functional\WaveFunctionalTests.cs:154
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1069" name="Wave_AppliesShootingConfigurationToEnemy" fullname="WaveFunctionalTests.Wave_AppliesShootingConfigurationToEnemy" methodname="Wave_AppliesShootingConfigurationToEnemy" classname="WaveFunctionalTests" runstate="Runnable" seed="1486820258" result="Failed" start-time="2026-08-19 21:00:38Z" end-time="2026-08-19 21:00:38Z" duration="0.210353" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: 65
+  But was:  75
+]]></message>
+            <stack-trace><![CDATA[at WaveFunctionalTests+<Wave_AppliesShootingConfigurationToEnemy>d__13.MoveNext () [0x00087] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Space Shooter Template FREE\Tests\PlayMode\Functional\WaveFunctionalTests.cs:213
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1065" name="Wave_AppliesSpeedToFollowThePath" fullname="WaveFunctionalTests.Wave_AppliesSpeedToFollowThePath" methodname="Wave_AppliesSpeedToFollowThePath" classname="WaveFunctionalTests" runstate="Runnable" seed="1723062931" result="Failed" start-time="2026-08-19 21:00:38Z" end-time="2026-08-19 21:00:38Z" duration="0.208648" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: 42.0f
+  But was:  25.0f
+]]></message>
+            <stack-trace><![CDATA[at WaveFunctionalTests+<Wave_AppliesSpeedToFollowThePath>d__9.MoveNext () [0x0006a] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Space Shooter Template FREE\Tests\PlayMode\Functional\WaveFunctionalTests.cs:135
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1064" name="Wave_SpawnsConfiguredEnemyCount" fullname="WaveFunctionalTests.Wave_SpawnsConfiguredEnemyCount" methodname="Wave_SpawnsConfiguredEnemyCount" classname="WaveFunctionalTests" runstate="Runnable" seed="955772716" result="Passed" start-time="2026-08-19 21:00:38Z" end-time="2026-08-19 21:00:38Z" duration="0.208939" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Saving results to: C:/Users/User/AppData/LocalLow/DefaultCompany/QA - Final\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="20" result="Failed(Child)" total="20" passed="19" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-08-19 22:14:56Z" end-time="2026-08-19 22:15:01Z" duration="4.7469722">
+  <test-suite type="TestSuite" id="1103" name="QA - Final" fullname="QA - Final" runstate="Runnable" testcasecount="79" result="Failed" site="Child" start-time="2026-08-19 22:14:56Z" end-time="2026-08-19 22:15:01Z" duration="4.746972" total="20" passed="19" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1099" name="PlayModeTests.dll" fullname="C:/Users/User/Documents/GitHub/QA_SpaceShooter/Library/ScriptAssemblies/PlayModeTests.dll" runstate="Runnable" testcasecount="79" result="Failed" site="Child" start-time="2026-08-19 22:14:56Z" end-time="2026-08-19 22:15:01Z" duration="4.739607" total="20" passed="19" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="24940" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1071" name="AccessibilityTests" fullname="AccessibilityTests" classname="AccessibilityTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-08-19 22:14:56Z" end-time="2026-08-19 22:14:56Z" duration="0.045165" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1073" name="GameplayComponents_DoNotRequireColorConfigurationToExist" fullname="AccessibilityTests.GameplayComponents_DoNotRequireColorConfigurationToExist" methodname="GameplayComponents_DoNotRequireColorConfigurationToExist" classname="AccessibilityTests" runstate="Runnable" seed="1435524786" result="Passed" start-time="2026-08-19 22:14:56Z" end-time="2026-08-19 22:14:56Z" duration="0.012522" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1072" name="Player_HasUsableMovementConfiguration" fullname="AccessibilityTests.Player_HasUsableMovementConfiguration" methodname="Player_HasUsableMovementConfiguration" classname="AccessibilityTests" runstate="Runnable" seed="2092343936" result="Passed" start-time="2026-08-19 22:14:56Z" end-time="2026-08-19 22:14:56Z" duration="0.003427" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1074" name="Player_RemainsWithinCameraPlayableArea" fullname="AccessibilityTests.Player_RemainsWithinCameraPlayableArea" methodname="Player_RemainsWithinCameraPlayableArea" classname="AccessibilityTests" runstate="Runnable" seed="397634755" result="Passed" start-time="2026-08-19 22:14:56Z" end-time="2026-08-19 22:14:56Z" duration="0.014686" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1075" name="CompatibilityTests" fullname="CompatibilityTests" classname="CompatibilityTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-19 22:14:56Z" end-time="2026-08-19 22:14:56Z" duration="0.015399" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1079" name="CoreGameplayComponents_CanBeCreated" fullname="CompatibilityTests.CoreGameplayComponents_CanBeCreated" methodname="CoreGameplayComponents_CanBeCreated" classname="CompatibilityTests" runstate="Runnable" seed="115755447" result="Passed" start-time="2026-08-19 22:14:56Z" end-time="2026-08-19 22:14:56Z" duration="0.000623" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1077" name="PlayerMovement_DesktopAndMobileInputPaths_AreDefined" fullname="CompatibilityTests.PlayerMovement_DesktopAndMobileInputPaths_AreDefined" methodname="PlayerMovement_DesktopAndMobileInputPaths_AreDefined" classname="CompatibilityTests" runstate="Runnable" seed="2084879208" result="Passed" start-time="2026-08-19 22:14:56Z" end-time="2026-08-19 22:14:56Z" duration="0.002607" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <reason>
+            <message><![CDATA[Desktop/editor input compilation path is active.]]></message>
+          </reason>
+        </test-case>
+        <test-case id="1076" name="PlayerMovement_HasValidMovementBorders" fullname="CompatibilityTests.PlayerMovement_HasValidMovementBorders" methodname="PlayerMovement_HasValidMovementBorders" classname="CompatibilityTests" runstate="Runnable" seed="1475641099" result="Passed" start-time="2026-08-19 22:14:56Z" end-time="2026-08-19 22:14:56Z" duration="0.000250" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1078" name="PlayerMovement_RemainsInsideConfiguredBounds" fullname="CompatibilityTests.PlayerMovement_RemainsInsideConfiguredBounds" methodname="PlayerMovement_RemainsInsideConfiguredBounds" classname="CompatibilityTests" runstate="Runnable" seed="2091387620" result="Passed" start-time="2026-08-19 22:14:56Z" end-time="2026-08-19 22:14:56Z" duration="0.009490" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1080" name="LoadTests" fullname="LoadTests" classname="LoadTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-19 22:14:56Z" end-time="2026-08-19 22:14:58Z" duration="2.067846" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1083" name="FullGameplayWorkload_RemainsStable" fullname="LoadTests.FullGameplayWorkload_RemainsStable" methodname="FullGameplayWorkload_RemainsStable" classname="LoadTests" runstate="Runnable" seed="1774260108" result="Passed" start-time="2026-08-19 22:14:56Z" end-time="2026-08-19 22:14:57Z" duration="1.014660" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1081" name="ManyProjectiles_CanExistSimultaneously" fullname="LoadTests.ManyProjectiles_CanExistSimultaneously" methodname="ManyProjectiles_CanExistSimultaneously" classname="LoadTests" runstate="Runnable" seed="1145512144" result="Passed" start-time="2026-08-19 22:14:57Z" end-time="2026-08-19 22:14:57Z" duration="0.018376" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1082" name="MultipleSimultaneousWaves_RemainStable" fullname="LoadTests.MultipleSimultaneousWaves_RemainStable" methodname="MultipleSimultaneousWaves_RemainStable" classname="LoadTests" runstate="Runnable" seed="1190871135" result="Passed" start-time="2026-08-19 22:14:57Z" end-time="2026-08-19 22:14:58Z" duration="1.011363" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1084" name="PoolingController_RemainsStableUnderRepeatedRequests" fullname="LoadTests.PoolingController_RemainsStableUnderRepeatedRequests" methodname="PoolingController_RemainsStableUnderRepeatedRequests" classname="LoadTests" runstate="Runnable" seed="536914084" result="Passed" start-time="2026-08-19 22:14:58Z" end-time="2026-08-19 22:14:58Z" duration="0.018000" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1085" name="StressTests" fullname="StressTests" classname="StressTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-19 22:14:58Z" end-time="2026-08-19 22:15:01Z" duration="2.601436" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1086" name="ExtremeProjectileCount_RemainsStable" fullname="StressTests.ExtremeProjectileCount_RemainsStable" methodname="ExtremeProjectileCount_RemainsStable" classname="StressTests" runstate="Runnable" seed="2068892569" result="Passed" start-time="2026-08-19 22:14:58Z" end-time="2026-08-19 22:14:58Z" duration="0.025641" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1087" name="ExtremeWaveGeneration_RemainsStable" fullname="StressTests.ExtremeWaveGeneration_RemainsStable" methodname="ExtremeWaveGeneration_RemainsStable" classname="StressTests" runstate="Runnable" seed="84933838" result="Passed" start-time="2026-08-19 22:14:58Z" end-time="2026-08-19 22:15:00Z" duration="2.015138" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1088" name="HeavyLevelConfiguration_RemainsStable" fullname="StressTests.HeavyLevelConfiguration_RemainsStable" methodname="HeavyLevelConfiguration_RemainsStable" classname="StressTests" runstate="Runnable" seed="1084094755" result="Passed" start-time="2026-08-19 22:15:00Z" end-time="2026-08-19 22:15:01Z" duration="0.513751" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1089" name="RepeatedObjectCreationAndDestruction_RemainsStable" fullname="StressTests.RepeatedObjectCreationAndDestruction_RemainsStable" methodname="RepeatedObjectCreationAndDestruction_RemainsStable" classname="StressTests" runstate="Runnable" seed="1878971818" result="Passed" start-time="2026-08-19 22:15:01Z" end-time="2026-08-19 22:15:01Z" duration="0.043126" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1090" name="UsabilityTests" fullname="UsabilityTests" classname="UsabilityTests" runstate="Runnable" testcasecount="5" result="Failed" site="Child" start-time="2026-08-19 22:15:01Z" end-time="2026-08-19 22:15:01Z" duration="0.006198" total="5" passed="4" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1091" name="Player_HasMovementComponent" fullname="UsabilityTests.Player_HasMovementComponent" methodname="Player_HasMovementComponent" classname="UsabilityTests" runstate="Runnable" seed="493879794" result="Passed" start-time="2026-08-19 22:15:01Z" end-time="2026-08-19 22:15:01Z" duration="0.000411" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1092" name="Player_HasShootingComponent" fullname="UsabilityTests.Player_HasShootingComponent" methodname="Player_HasShootingComponent" classname="UsabilityTests" runstate="Runnable" seed="49270184" result="Passed" start-time="2026-08-19 22:15:01Z" end-time="2026-08-19 22:15:01Z" duration="0.000241" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1094" name="PlayerMoving_HasUsableScreenOffsets" fullname="UsabilityTests.PlayerMoving_HasUsableScreenOffsets" methodname="PlayerMoving_HasUsableScreenOffsets" classname="UsabilityTests" runstate="Runnable" seed="932962557" result="Passed" start-time="2026-08-19 22:15:01Z" end-time="2026-08-19 22:15:01Z" duration="0.000313" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1093" name="PlayerShooting_HasValidWeaponPowerRange" fullname="UsabilityTests.PlayerShooting_HasValidWeaponPowerRange" methodname="PlayerShooting_HasValidWeaponPowerRange" classname="UsabilityTests" runstate="Runnable" seed="1000846728" result="Passed" start-time="2026-08-19 22:15:01Z" end-time="2026-08-19 22:15:01Z" duration="0.000317" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1095" name="Wave_HasValidConfigurationFields" fullname="UsabilityTests.Wave_HasValidConfigurationFields" methodname="Wave_HasValidConfigurationFields" classname="UsabilityTests" runstate="Runnable" seed="1717817990" result="Failed" label="Error" start-time="2026-08-19 22:15:01Z" end-time="2026-08-19 22:15:01Z" duration="0.001484" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object]]></message>
+            <stack-trace><![CDATA[  at UsabilityTests.Wave_HasValidConfigurationFields () [0x0003d] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\NonFunctional\Usability\UsabilityTests.cs:142 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <13c0c460649d4ce49f991e2c222fa635>:0 ]]></stack-trace>
+          </failure>
+          <output><![CDATA[Saving results to: C:/Users/User/AppData/LocalLow/DefaultCompany/QA - Final\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

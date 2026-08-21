@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="13" result="Failed(Child)" total="13" passed="5" failed="8" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.2922401">
+  <test-suite type="TestSuite" id="1151" name="QA - Final" fullname="QA - Final" runstate="Runnable" testcasecount="124" result="Failed" site="Child" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.292240" total="13" passed="5" failed="8" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1147" name="PlayModeTests.dll" fullname="C:/Users/User/Documents/GitHub/QA_SpaceShooter/Library/ScriptAssemblies/PlayModeTests.dll" runstate="Runnable" testcasecount="124" result="Failed" site="Child" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.283315" total="13" passed="5" failed="8" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="24940" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1048" name="Level2BossIntegrationTests" fullname="Level2BossIntegrationTests" classname="Level2BossIntegrationTests" runstate="Runnable" testcasecount="12" result="Failed" site="Child" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.154132" total="12" passed="5" failed="7" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1049" name="BOS_FT_001_BossCanBeEncounteredInLevel2" fullname="Level2BossIntegrationTests.BOS_FT_001_BossCanBeEncounteredInLevel2" methodname="BOS_FT_001_BossCanBeEncounteredInLevel2" classname="Level2BossIntegrationTests" runstate="Runnable" seed="1044798811" result="Failed" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.041954" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+]]></output>
+        </test-case>
+        <test-case id="1050" name="BOS_FT_002_BossCanBeDefeated" fullname="Level2BossIntegrationTests.BOS_FT_002_BossCanBeDefeated" methodname="BOS_FT_002_BossCanBeDefeated" classname="Level2BossIntegrationTests" runstate="Runnable" seed="258632775" result="Failed" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.006055" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+]]></output>
+        </test-case>
+        <test-case id="1051" name="L2_FT_002_Level1CanTransitionToLevel2" fullname="Level2BossIntegrationTests.L2_FT_002_Level1CanTransitionToLevel2" methodname="L2_FT_002_Level1CanTransitionToLevel2" classname="Level2BossIntegrationTests" runstate="Runnable" seed="1746333464" result="Passed" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.025634" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1052" name="L2_FT_003_Level2UsesHarderSettings" fullname="Level2BossIntegrationTests.L2_FT_003_Level2UsesHarderSettings" methodname="L2_FT_003_Level2UsesHarderSettings" classname="Level2BossIntegrationTests" runstate="Runnable" seed="1629257195" result="Passed" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.000435" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1053" name="L2_FT_004_ShieldedEnemiesActuallyAppearInLevel2" fullname="Level2BossIntegrationTests.L2_FT_004_ShieldedEnemiesActuallyAppearInLevel2" methodname="L2_FT_004_ShieldedEnemiesActuallyAppearInLevel2" classname="Level2BossIntegrationTests" runstate="Runnable" seed="771800371" result="Failed" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.006695" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+]]></output>
+        </test-case>
+        <test-case id="1054" name="L2_FT_005_BossActuallyAppearsInLevel2" fullname="Level2BossIntegrationTests.L2_FT_005_BossActuallyAppearsInLevel2" methodname="L2_FT_005_BossActuallyAppearsInLevel2" classname="Level2BossIntegrationTests" runstate="Runnable" seed="1522104345" result="Failed" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.003656" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+]]></output>
+        </test-case>
+        <test-case id="1055" name="L2_FT_006_BossDefeatIsRecognized" fullname="Level2BossIntegrationTests.L2_FT_006_BossDefeatIsRecognized" methodname="L2_FT_006_BossDefeatIsRecognized" classname="Level2BossIntegrationTests" runstate="Runnable" seed="2052882167" result="Failed" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.006658" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+]]></output>
+        </test-case>
+        <test-case id="1056" name="L2_FT_007_Level2VictoryConditionWorks" fullname="Level2BossIntegrationTests.L2_FT_007_Level2VictoryConditionWorks" methodname="L2_FT_007_Level2VictoryConditionWorks" classname="Level2BossIntegrationTests" runstate="Runnable" seed="925062460" result="Failed" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.003699" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+]]></output>
+        </test-case>
+        <test-case id="1057" name="L2_IT_001_Level2ControllerWaveSpawnsShieldedEnemy" fullname="Level2BossIntegrationTests.L2_IT_001_Level2ControllerWaveSpawnsShieldedEnemy" methodname="L2_IT_001_Level2ControllerWaveSpawnsShieldedEnemy" classname="Level2BossIntegrationTests" runstate="Runnable" seed="685533784" result="Failed" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.006298" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+NullReferenceException: Object reference not set to an instance of an object
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Wave:Start() (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:57)
+
+]]></output>
+        </test-case>
+        <test-case id="1058" name="L2_IT_002_Level2CanProvideBossForLevelIntegration" fullname="Level2BossIntegrationTests.L2_IT_002_Level2CanProvideBossForLevelIntegration" methodname="L2_IT_002_Level2CanProvideBossForLevelIntegration" classname="Level2BossIntegrationTests" runstate="Runnable" seed="411115088" result="Passed" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.001930" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1059" name="L2_UT_001_Level2SelectsWaveFromConfiguredWavePool" fullname="Level2BossIntegrationTests.L2_UT_001_Level2SelectsWaveFromConfiguredWavePool" methodname="L2_UT_001_Level2SelectsWaveFromConfiguredWavePool" classname="Level2BossIntegrationTests" runstate="Runnable" seed="1804422082" result="Passed" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.002933" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1060" name="L2_UT_002_DeterministicTestMode_SelectsConfiguredWave" fullname="Level2BossIntegrationTests.L2_UT_002_DeterministicTestMode_SelectsConfiguredWave" methodname="L2_UT_002_DeterministicTestMode_SelectsConfiguredWave" classname="Level2BossIntegrationTests" runstate="Runnable" seed="1256329520" result="Passed" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.000690" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1128" name="StressTests" fullname="StressTests" classname="StressTests" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.125398" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1136" name="BOS_SRT_001_BossRemainsStableUnderSustainedAttacks" fullname="StressTests.BOS_SRT_001_BossRemainsStableUnderSustainedAttacks" methodname="BOS_SRT_001_BossRemainsStableUnderSustainedAttacks" classname="StressTests" runstate="Runnable" seed="469063604" result="Failed" start-time="2026-08-20 16:46:17Z" end-time="2026-08-20 16:46:17Z" duration="0.120882" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Boss should remain alive during the sustained-attack stress workload.
+  Expected: greater than 0
+  But was:  0
+]]></message>
+            <stack-trace><![CDATA[at StressTests+<BOS_SRT_001_BossRemainsStableUnderSustainedAttacks>d__11.MoveNext () [0x00187] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\NonFunctional\Stress\StressTests.cs:473
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Saving results to: C:/Users/User/AppData/LocalLow/DefaultCompany/QA - Final\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

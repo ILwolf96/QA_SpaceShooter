@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="10" result="Passed" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-08-20 17:16:33Z" end-time="2026-08-20 17:16:38Z" duration="4.437701">
+  <test-suite type="TestSuite" id="1151" name="QA - Final" fullname="QA - Final" runstate="Runnable" testcasecount="124" result="Passed" start-time="2026-08-20 17:16:33Z" end-time="2026-08-20 17:16:38Z" duration="4.437701" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1147" name="PlayModeTests.dll" fullname="C:/Users/User/Documents/GitHub/QA_SpaceShooter/Library/ScriptAssemblies/PlayModeTests.dll" runstate="Runnable" testcasecount="124" result="Passed" start-time="2026-08-20 17:16:33Z" end-time="2026-08-20 17:16:38Z" duration="4.428946" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="24940" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestFixture" id="1048" name="Level2BossIntegrationTests" fullname="Level2BossIntegrationTests" classname="Level2BossIntegrationTests" runstate="Runnable" testcasecount="12" result="Passed" start-time="2026-08-20 17:16:33Z" end-time="2026-08-20 17:16:33Z" duration="0.209045" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1049" name="BOS_FT_001_BossCanBeEncounteredInLevel2" fullname="Level2BossIntegrationTests.BOS_FT_001_BossCanBeEncounteredInLevel2" methodname="BOS_FT_001_BossCanBeEncounteredInLevel2" classname="Level2BossIntegrationTests" runstate="Runnable" seed="498153302" result="Passed" start-time="2026-08-20 17:16:33Z" end-time="2026-08-20 17:16:33Z" duration="0.051697" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1050" name="BOS_FT_002_BossCanBeDefeated" fullname="Level2BossIntegrationTests.BOS_FT_002_BossCanBeDefeated" methodname="BOS_FT_002_BossCanBeDefeated" classname="Level2BossIntegrationTests" runstate="Runnable" seed="1644879339" result="Passed" start-time="2026-08-20 17:16:33Z" end-time="2026-08-20 17:16:33Z" duration="0.019093" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1053" name="L2_FT_004_ShieldedEnemiesActuallyAppearInLevel2" fullname="Level2BossIntegrationTests.L2_FT_004_ShieldedEnemiesActuallyAppearInLevel2" methodname="L2_FT_004_ShieldedEnemiesActuallyAppearInLevel2" classname="Level2BossIntegrationTests" runstate="Runnable" seed="667249502" result="Passed" start-time="2026-08-20 17:16:33Z" end-time="2026-08-20 17:16:33Z" duration="0.016400" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1054" name="L2_FT_005_BossActuallyAppearsInLevel2" fullname="Level2BossIntegrationTests.L2_FT_005_BossActuallyAppearsInLevel2" methodname="L2_FT_005_BossActuallyAppearsInLevel2" classname="Level2BossIntegrationTests" runstate="Runnable" seed="1617919128" result="Passed" start-time="2026-08-20 17:16:33Z" end-time="2026-08-20 17:16:33Z" duration="0.017179" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1055" name="L2_FT_006_BossDefeatIsRecognized" fullname="Level2BossIntegrationTests.L2_FT_006_BossDefeatIsRecognized" methodname="L2_FT_006_BossDefeatIsRecognized" classname="Level2BossIntegrationTests" runstate="Runnable" seed="2074110631" result="Passed" start-time="2026-08-20 17:16:33Z" end-time="2026-08-20 17:16:33Z" duration="0.016784" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1056" name="L2_FT_007_Level2VictoryConditionWorks" fullname="Level2BossIntegrationTests.L2_FT_007_Level2VictoryConditionWorks" methodname="L2_FT_007_Level2VictoryConditionWorks" classname="Level2BossIntegrationTests" runstate="Runnable" seed="1558747972" result="Passed" start-time="2026-08-20 17:16:33Z" end-time="2026-08-20 17:16:33Z" duration="0.013966" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1057" name="L2_IT_001_Level2ControllerWaveSpawnsShieldedEnemy" fullname="Level2BossIntegrationTests.L2_IT_001_Level2ControllerWaveSpawnsShieldedEnemy" methodname="L2_IT_001_Level2ControllerWaveSpawnsShieldedEnemy" classname="Level2BossIntegrationTests" runstate="Runnable" seed="117083154" result="Passed" start-time="2026-08-20 17:16:33Z" end-time="2026-08-20 17:16:33Z" duration="0.011765" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1121" name="LoadTests" fullname="LoadTests" classname="LoadTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-08-20 17:16:33Z" end-time="2026-08-20 17:16:35Z" duration="2.065672" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1127" name="L2_LT_001_Level2SustainedGameplay_RemainsStable" fullname="LoadTests.L2_LT_001_Level2SustainedGameplay_RemainsStable" methodname="L2_LT_001_Level2SustainedGameplay_RemainsStable" classname="LoadTests" runstate="Runnable" seed="318860979" result="Passed" start-time="2026-08-20 17:16:33Z" end-time="2026-08-20 17:16:35Z" duration="2.062415" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Level2Controller: No valid Wave prefab available.
+Level2Controller: No valid Wave prefab available.
+Level2Controller: No valid Wave prefab available.
+Level2Controller: No valid Wave prefab available.
+Level2Controller: No valid Wave prefab available.
+Level2Controller: Boss prefab is not assigned.
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1128" name="StressTests" fullname="StressTests" classname="StressTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-08-20 17:16:35Z" end-time="2026-08-20 17:16:38Z" duration="2.150171" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1136" name="BOS_SRT_001_BossRemainsStableUnderSustainedAttacks" fullname="StressTests.BOS_SRT_001_BossRemainsStableUnderSustainedAttacks" methodname="BOS_SRT_001_BossRemainsStableUnderSustainedAttacks" classname="StressTests" runstate="Runnable" seed="1386157026" result="Passed" start-time="2026-08-20 17:16:35Z" end-time="2026-08-20 17:16:36Z" duration="0.124088" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1135" name="L2_SRT_001_HighDifficultyLevel2_RemainsStable" fullname="StressTests.L2_SRT_001_HighDifficultyLevel2_RemainsStable" methodname="L2_SRT_001_HighDifficultyLevel2_RemainsStable" classname="StressTests" runstate="Runnable" seed="502712498" result="Passed" start-time="2026-08-20 17:16:36Z" end-time="2026-08-20 17:16:38Z" duration="2.021058" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.GameObject.get_transform () (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+Wave+<CreateEnemyWave>d__15.MoveNext () (at Assets/Space Shooter Template FREE/Scripts/Wave.cs:64)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+
+Saving results to: C:/Users/User/AppData/LocalLow/DefaultCompany/QA - Final\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

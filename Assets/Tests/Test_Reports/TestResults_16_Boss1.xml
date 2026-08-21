@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="8" result="Failed(Child)" total="8" passed="2" failed="6" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-08-20 12:15:43Z" end-time="2026-08-20 12:15:44Z" duration="1.723139">
+  <test-suite type="TestSuite" id="1134" name="QA - Final" fullname="QA - Final" runstate="Runnable" testcasecount="108" result="Failed" site="Child" start-time="2026-08-20 12:15:43Z" end-time="2026-08-20 12:15:44Z" duration="1.723139" total="8" passed="2" failed="6" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1130" name="PlayModeTests.dll" fullname="C:/Users/User/Documents/GitHub/QA_SpaceShooter/Library/ScriptAssemblies/PlayModeTests.dll" runstate="Runnable" testcasecount="108" result="Failed" site="Child" start-time="2026-08-20 12:15:43Z" end-time="2026-08-20 12:15:44Z" duration="1.713103" total="8" passed="2" failed="6" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="24940" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1005" name="BossTests" fullname="BossTests" classname="BossTests" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-08-20 12:15:43Z" end-time="2026-08-20 12:15:44Z" duration="1.708791" total="8" passed="2" failed="6" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1006" name="BOS_UT_001_BossInitializesWithConfiguredHP" fullname="BossTests.BOS_UT_001_BossInitializesWithConfiguredHP" methodname="BOS_UT_001_BossInitializesWithConfiguredHP" classname="BossTests" runstate="Runnable" seed="83357703" result="Failed" start-time="2026-08-20 12:15:43Z" end-time="2026-08-20 12:15:43Z" duration="0.030821" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Boss should initialize with its configured maximum HP.
+  Expected: 5000
+  But was:  1000
+]]></message>
+            <stack-trace><![CDATA[at BossTests.BOS_UT_001_BossInitializesWithConfiguredHP () [0x00028] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\BossTests.cs:53
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1007" name="BOS_UT_002_BossReceivesDamage" fullname="BossTests.BOS_UT_002_BossReceivesDamage" methodname="BOS_UT_002_BossReceivesDamage" classname="BossTests" runstate="Runnable" seed="234327407" result="Failed" start-time="2026-08-20 12:15:43Z" end-time="2026-08-20 12:15:43Z" duration="0.001364" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Boss health should decrease when the Boss receives damage.
+  Expected: less than 1000
+  But was:  1000
+]]></message>
+            <stack-trace><![CDATA[at BossTests.BOS_UT_002_BossReceivesDamage () [0x00019] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\BossTests.cs:70
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1008" name="BOS_UT_003_BossSurvivesWhileHealthAboveZero" fullname="BossTests.BOS_UT_003_BossSurvivesWhileHealthAboveZero" methodname="BOS_UT_003_BossSurvivesWhileHealthAboveZero" classname="BossTests" runstate="Runnable" seed="1196758729" result="Passed" start-time="2026-08-20 12:15:43Z" end-time="2026-08-20 12:15:43Z" duration="0.002309" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1009" name="BOS_UT_004_BossDiesAtZeroHealth" fullname="BossTests.BOS_UT_004_BossDiesAtZeroHealth" methodname="BOS_UT_004_BossDiesAtZeroHealth" classname="BossTests" runstate="Runnable" seed="598010189" result="Failed" start-time="2026-08-20 12:15:43Z" end-time="2026-08-20 12:15:43Z" duration="0.000339" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Boss health should reach zero after lethal damage.
+  Expected: 0
+  But was:  1000
+]]></message>
+            <stack-trace><![CDATA[at BossTests.BOS_UT_004_BossDiesAtZeroHealth () [0x00032] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\BossTests.cs:114
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1010" name="BOS_UT_005_BossMovesHorizontally" fullname="BossTests.BOS_UT_005_BossMovesHorizontally" methodname="BOS_UT_005_BossMovesHorizontally" classname="BossTests" runstate="Runnable" seed="463367354" result="Failed" start-time="2026-08-20 12:15:43Z" end-time="2026-08-20 12:15:43Z" duration="0.214900" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Boss should move horizontally when horizontal movement is configured.
+  Expected: greater than 0.0f
+  But was:  0.0f
+]]></message>
+            <stack-trace><![CDATA[at BossTests+<BOS_UT_005_BossMovesHorizontally>d__8.MoveNext () [0x00074] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\BossTests.cs:142
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1011" name="BOS_UT_006_BossMovesVertically" fullname="BossTests.BOS_UT_006_BossMovesVertically" methodname="BOS_UT_006_BossMovesVertically" classname="BossTests" runstate="Runnable" seed="1589581828" result="Failed" start-time="2026-08-20 12:15:43Z" end-time="2026-08-20 12:15:43Z" duration="0.209897" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Boss should move vertically when vertical movement is configured.
+  Expected: greater than 0.0f
+  But was:  0.0f
+]]></message>
+            <stack-trace><![CDATA[at BossTests+<BOS_UT_006_BossMovesVertically>d__9.MoveNext () [0x00074] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\BossTests.cs:166
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1012" name="BOS_UT_007_BossMovesDiagonally" fullname="BossTests.BOS_UT_007_BossMovesDiagonally" methodname="BOS_UT_007_BossMovesDiagonally" classname="BossTests" runstate="Runnable" seed="1510242695" result="Failed" start-time="2026-08-20 12:15:43Z" end-time="2026-08-20 12:15:43Z" duration="0.209403" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Boss should move horizontally during diagonal movement.
+  Expected: greater than 0.0f
+  But was:  0.0f
+]]></message>
+            <stack-trace><![CDATA[at BossTests+<BOS_UT_007_BossMovesDiagonally>d__10.MoveNext () [0x0007e] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\BossTests.cs:190
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1013" name="BOS_UT_008_BossStaysWithinAllowedGameplayArea" fullname="BossTests.BOS_UT_008_BossStaysWithinAllowedGameplayArea" methodname="BOS_UT_008_BossStaysWithinAllowedGameplayArea" classname="BossTests" runstate="Runnable" seed="539483303" result="Passed" start-time="2026-08-20 12:15:43Z" end-time="2026-08-20 12:15:44Z" duration="1.010378" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Saving results to: C:/Users/User/AppData/LocalLow/DefaultCompany/QA - Final\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="13" result="Failed(Child)" total="13" passed="12" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.3550213">
+  <test-suite type="TestSuite" id="1151" name="QA - Final" fullname="QA - Final" runstate="Runnable" testcasecount="124" result="Failed" site="Child" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.355021" total="13" passed="12" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1147" name="PlayModeTests.dll" fullname="C:/Users/User/Documents/GitHub/QA_SpaceShooter/Library/ScriptAssemblies/PlayModeTests.dll" runstate="Runnable" testcasecount="124" result="Failed" site="Child" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.345783" total="13" passed="12" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="24940" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1048" name="Level2BossIntegrationTests" fullname="Level2BossIntegrationTests" classname="Level2BossIntegrationTests" runstate="Runnable" testcasecount="12" result="Failed" site="Child" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.212903" total="12" passed="11" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1049" name="BOS_FT_001_BossCanBeEncounteredInLevel2" fullname="Level2BossIntegrationTests.BOS_FT_001_BossCanBeEncounteredInLevel2" methodname="BOS_FT_001_BossCanBeEncounteredInLevel2" classname="Level2BossIntegrationTests" runstate="Runnable" seed="919358078" result="Passed" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.044775" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1050" name="BOS_FT_002_BossCanBeDefeated" fullname="Level2BossIntegrationTests.BOS_FT_002_BossCanBeDefeated" methodname="BOS_FT_002_BossCanBeDefeated" classname="Level2BossIntegrationTests" runstate="Runnable" seed="822711503" result="Passed" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.012565" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1051" name="L2_FT_002_Level1CanTransitionToLevel2" fullname="Level2BossIntegrationTests.L2_FT_002_Level1CanTransitionToLevel2" methodname="L2_FT_002_Level1CanTransitionToLevel2" classname="Level2BossIntegrationTests" runstate="Runnable" seed="1723550679" result="Passed" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.019595" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1052" name="L2_FT_003_Level2UsesHarderSettings" fullname="Level2BossIntegrationTests.L2_FT_003_Level2UsesHarderSettings" methodname="L2_FT_003_Level2UsesHarderSettings" classname="Level2BossIntegrationTests" runstate="Runnable" seed="2049832795" result="Passed" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.000666" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1053" name="L2_FT_004_ShieldedEnemiesActuallyAppearInLevel2" fullname="Level2BossIntegrationTests.L2_FT_004_ShieldedEnemiesActuallyAppearInLevel2" methodname="L2_FT_004_ShieldedEnemiesActuallyAppearInLevel2" classname="Level2BossIntegrationTests" runstate="Runnable" seed="1033397509" result="Passed" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.017756" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1054" name="L2_FT_005_BossActuallyAppearsInLevel2" fullname="Level2BossIntegrationTests.L2_FT_005_BossActuallyAppearsInLevel2" methodname="L2_FT_005_BossActuallyAppearsInLevel2" classname="Level2BossIntegrationTests" runstate="Runnable" seed="953202660" result="Passed" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.023508" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1055" name="L2_FT_006_BossDefeatIsRecognized" fullname="Level2BossIntegrationTests.L2_FT_006_BossDefeatIsRecognized" methodname="L2_FT_006_BossDefeatIsRecognized" classname="Level2BossIntegrationTests" runstate="Runnable" seed="890796929" result="Passed" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.015123" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1056" name="L2_FT_007_Level2VictoryConditionWorks" fullname="Level2BossIntegrationTests.L2_FT_007_Level2VictoryConditionWorks" methodname="L2_FT_007_Level2VictoryConditionWorks" classname="Level2BossIntegrationTests" runstate="Runnable" seed="72022954" result="Failed" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.013494" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Level 2 must spawn its Boss before victory can occur.
+  Expected: not null
+  But was:  null
+]]></message>
+            <stack-trace><![CDATA[at Level2BossIntegrationTests+<L2_FT_007_Level2VictoryConditionWorks>d__17.MoveNext () [0x00092] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Tests\PlayMode\Functional\Level2BossIntegrationTests.cs:379
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1057" name="L2_IT_001_Level2ControllerWaveSpawnsShieldedEnemy" fullname="Level2BossIntegrationTests.L2_IT_001_Level2ControllerWaveSpawnsShieldedEnemy" methodname="L2_IT_001_Level2ControllerWaveSpawnsShieldedEnemy" classname="Level2BossIntegrationTests" runstate="Runnable" seed="2013107513" result="Passed" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.012380" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1058" name="L2_IT_002_Level2CanProvideBossForLevelIntegration" fullname="Level2BossIntegrationTests.L2_IT_002_Level2CanProvideBossForLevelIntegration" methodname="L2_IT_002_Level2CanProvideBossForLevelIntegration" classname="Level2BossIntegrationTests" runstate="Runnable" seed="1276088489" result="Passed" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.000738" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1059" name="L2_UT_001_Level2SelectsWaveFromConfiguredWavePool" fullname="Level2BossIntegrationTests.L2_UT_001_Level2SelectsWaveFromConfiguredWavePool" methodname="L2_UT_001_Level2SelectsWaveFromConfiguredWavePool" classname="Level2BossIntegrationTests" runstate="Runnable" seed="1755895206" result="Passed" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.001203" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1060" name="L2_UT_002_DeterministicTestMode_SelectsConfiguredWave" fullname="Level2BossIntegrationTests.L2_UT_002_DeterministicTestMode_SelectsConfiguredWave" methodname="L2_UT_002_DeterministicTestMode_SelectsConfiguredWave" classname="Level2BossIntegrationTests" runstate="Runnable" seed="1815307320" result="Passed" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.000789" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1128" name="StressTests" fullname="StressTests" classname="StressTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.128762" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1136" name="BOS_SRT_001_BossRemainsStableUnderSustainedAttacks" fullname="StressTests.BOS_SRT_001_BossRemainsStableUnderSustainedAttacks" methodname="BOS_SRT_001_BossRemainsStableUnderSustainedAttacks" classname="StressTests" runstate="Runnable" seed="1619848999" result="Passed" start-time="2026-08-20 16:54:19Z" end-time="2026-08-20 16:54:19Z" duration="0.125300" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Saving results to: C:/Users/User/AppData/LocalLow/DefaultCompany/QA - Final\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

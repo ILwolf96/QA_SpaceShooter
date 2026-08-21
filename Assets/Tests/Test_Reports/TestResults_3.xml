@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="51" result="Failed(Child)" total="51" passed="41" failed="10" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:52Z" duration="5.1745793">
+  <test-suite type="TestSuite" id="1068" name="QA - Final" fullname="QA - Final" runstate="Runnable" testcasecount="51" result="Failed" site="Child" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:52Z" duration="5.174579" total="51" passed="41" failed="10" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1064" name="PlayModeTests.dll" fullname="C:/Users/User/Documents/GitHub/QA_SpaceShooter/Library/ScriptAssemblies/PlayModeTests.dll" runstate="Runnable" testcasecount="51" result="Failed" site="Child" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:52Z" duration="5.166929" total="51" passed="41" failed="10" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="24940" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1001" name="BonusFunctionalTests" fullname="BonusFunctionalTests" classname="BonusFunctionalTests" runstate="Runnable" testcasecount="2" result="Failed" site="Child" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.051755" total="2" passed="1" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1002" name="Bonus_Collection_IncreasesWeaponPower" fullname="BonusFunctionalTests.Bonus_Collection_IncreasesWeaponPower" methodname="Bonus_Collection_IncreasesWeaponPower" classname="BonusFunctionalTests" runstate="Runnable" seed="1771679542" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.024375" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1003" name="Bonus_DoesNotIncreaseWeaponPower_AboveMaximum" fullname="BonusFunctionalTests.Bonus_DoesNotIncreaseWeaponPower_AboveMaximum" methodname="Bonus_DoesNotIncreaseWeaponPower_AboveMaximum" classname="BonusFunctionalTests" runstate="Runnable" seed="421571391" result="Failed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.012674" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Exception] MissingComponentException: There is no 'Collider2D' attached to the "Test_Player" game object, but a script is trying to access it.
+You probably need to add a Collider2D to the game object "Test_Player". Or your script needs to check if the component is attached before using it.'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.Component.get_gameObject () (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.Component.get_tag () (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+Bonus.OnTriggerEnter2D (UnityEngine.Collider2D collision) (at Assets/Space Shooter Template FREE/Scripts/Bonus.cs:8)
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+<Bonus_DoesNotIncreaseWeaponPower_AboveMaximum>d__5:MoveNext() (at Assets/Space Shooter Template FREE/Tests/PlayMode/Functional/BonusFunctionalTests.cs:82)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[MissingComponentException: There is no 'Collider2D' attached to the "Test_Player" game object, but a script is trying to access it.
+You probably need to add a Collider2D to the game object "Test_Player". Or your script needs to check if the component is attached before using it.
+UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.Component.get_gameObject () (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+UnityEngine.Component.get_tag () (at <612ea0208cc847f49d539e6511ed3cd5>:0)
+Bonus.OnTriggerEnter2D (UnityEngine.Collider2D collision) (at Assets/Space Shooter Template FREE/Scripts/Bonus.cs:8)
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+<Bonus_DoesNotIncreaseWeaponPower_AboveMaximum>d__5:MoveNext() (at Assets/Space Shooter Template FREE/Tests/PlayMode/Functional/BonusFunctionalTests.cs:82)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1004" name="BoundaryFunctionalTests" fullname="BoundaryFunctionalTests" classname="BoundaryFunctionalTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.054158" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1007" name="Boundary_DestroysBonusOutsideBoundary" fullname="BoundaryFunctionalTests.Boundary_DestroysBonusOutsideBoundary" methodname="Boundary_DestroysBonusOutsideBoundary" classname="BoundaryFunctionalTests" runstate="Runnable" seed="1890095130" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.011501" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1006" name="Boundary_DestroysProjectileOutsideBoundary" fullname="BoundaryFunctionalTests.Boundary_DestroysProjectileOutsideBoundary" methodname="Boundary_DestroysProjectileOutsideBoundary" classname="BoundaryFunctionalTests" runstate="Runnable" seed="673245687" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.016648" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1008" name="Boundary_DoesNotDestroyUnrecognizedObject" fullname="BoundaryFunctionalTests.Boundary_DoesNotDestroyUnrecognizedObject" methodname="Boundary_DoesNotDestroyUnrecognizedObject" classname="BoundaryFunctionalTests" runstate="Runnable" seed="1465190235" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.012110" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1005" name="Boundary_ResizesColliderFromCameraViewport" fullname="BoundaryFunctionalTests.Boundary_ResizesColliderFromCameraViewport" methodname="Boundary_ResizesColliderFromCameraViewport" classname="BoundaryFunctionalTests" runstate="Runnable" seed="727506606" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.010111" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1009" name="DirectMovingTests" fullname="DirectMovingTests" classname="DirectMovingTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.031704" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1012" name="DirectMoving_NegativeSpeed_MovesDownward" fullname="DirectMovingTests.DirectMoving_NegativeSpeed_MovesDownward" methodname="DirectMoving_NegativeSpeed_MovesDownward" classname="DirectMovingTests" runstate="Runnable" seed="622180355" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.008637" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1010" name="DirectMoving_PositiveSpeed_MovesUpward" fullname="DirectMovingTests.DirectMoving_PositiveSpeed_MovesUpward" methodname="DirectMoving_PositiveSpeed_MovesUpward" classname="DirectMovingTests" runstate="Runnable" seed="1161603821" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.010327" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1011" name="DirectMoving_ZeroSpeed_DoesNotMove" fullname="DirectMovingTests.DirectMoving_ZeroSpeed_DoesNotMove" methodname="DirectMoving_ZeroSpeed_DoesNotMove" classname="DirectMovingTests" runstate="Runnable" seed="486579990" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.009133" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1013" name="EnemyFunctionalTests" fullname="EnemyFunctionalTests" classname="EnemyFunctionalTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.046927" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1016" name="Enemy_LethalDamage_DestroysEnemy" fullname="EnemyFunctionalTests.Enemy_LethalDamage_DestroysEnemy" methodname="Enemy_LethalDamage_DestroysEnemy" classname="EnemyFunctionalTests" runstate="Runnable" seed="1725053094" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.015152" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1017" name="Enemy_NonLethalDamage_CreatesHitEffect" fullname="EnemyFunctionalTests.Enemy_NonLethalDamage_CreatesHitEffect" methodname="Enemy_NonLethalDamage_CreatesHitEffect" classname="EnemyFunctionalTests" runstate="Runnable" seed="1174769271" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.010520" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1015" name="Enemy_NonLethalDamage_ReducesHealth" fullname="EnemyFunctionalTests.Enemy_NonLethalDamage_ReducesHealth" methodname="Enemy_NonLethalDamage_ReducesHealth" classname="EnemyFunctionalTests" runstate="Runnable" seed="1947386413" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.009126" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1014" name="Enemy_StartsWithConfiguredHealth" fullname="EnemyFunctionalTests.Enemy_StartsWithConfiguredHealth" methodname="Enemy_StartsWithConfiguredHealth" classname="EnemyFunctionalTests" runstate="Runnable" seed="2057142350" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.007984" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1018" name="FollowThePathFunctionalTests" fullname="FollowThePathFunctionalTests" classname="FollowThePathFunctionalTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:51Z" duration="3.163854" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1021" name="FollowThePath_MovesWhenMovementIsActive" fullname="FollowThePathFunctionalTests.FollowThePath_MovesWhenMovementIsActive" methodname="FollowThePath_MovesWhenMovementIsActive" classname="FollowThePathFunctionalTests" runstate="Runnable" seed="667285733" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:47Z" duration="0.111061" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1024" name="LoopDisabled_DestroysEnemyAfterPathCompletion" fullname="FollowThePathFunctionalTests.LoopDisabled_DestroysEnemyAfterPathCompletion" methodname="LoopDisabled_DestroysEnemyAfterPathCompletion" classname="FollowThePathFunctionalTests" runstate="Runnable" seed="1896896865" result="Passed" start-time="2026-08-19 20:12:47Z" end-time="2026-08-19 20:12:49Z" duration="2.012128" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1023" name="LoopEnabled_LeavesEnemyActiveAfterPathProgress" fullname="FollowThePathFunctionalTests.LoopEnabled_LeavesEnemyActiveAfterPathProgress" methodname="LoopEnabled_LeavesEnemyActiveAfterPathProgress" classname="FollowThePathFunctionalTests" runstate="Runnable" seed="221125118" result="Passed" start-time="2026-08-19 20:12:49Z" end-time="2026-08-19 20:12:50Z" duration="1.008477" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1022" name="RotationByPathFalse_ResetsRotationToIdentity" fullname="FollowThePathFunctionalTests.RotationByPathFalse_ResetsRotationToIdentity" methodname="RotationByPathFalse_ResetsRotationToIdentity" classname="FollowThePathFunctionalTests" runstate="Runnable" seed="35480820" result="Passed" start-time="2026-08-19 20:12:50Z" end-time="2026-08-19 20:12:51Z" duration="0.008771" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1019" name="SetPath_InitializesEnemyAtPathStart" fullname="FollowThePathFunctionalTests.SetPath_InitializesEnemyAtPathStart" methodname="SetPath_InitializesEnemyAtPathStart" classname="FollowThePathFunctionalTests" runstate="Runnable" seed="212308840" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.010789" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1020" name="SetPath_StoresConfiguredPath" fullname="FollowThePathFunctionalTests.SetPath_StoresConfiguredPath" methodname="SetPath_StoresConfiguredPath" classname="FollowThePathFunctionalTests" runstate="Runnable" seed="65743303" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.007686" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1025" name="LevelControllerFunctionalTests" fullname="LevelControllerFunctionalTests" classname="LevelControllerFunctionalTests" runstate="Runnable" testcasecount="4" result="Failed" site="Child" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.351652" total="4" passed="3" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1026" name="LevelController_InstantiatesConfiguredWave" fullname="LevelControllerFunctionalTests.LevelController_InstantiatesConfiguredWave" methodname="LevelController_InstantiatesConfiguredWave" classname="LevelControllerFunctionalTests" runstate="Runnable" seed="57031360" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.220141" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1027" name="LevelController_RespectsWaveStartDelay" fullname="LevelControllerFunctionalTests.LevelController_RespectsWaveStartDelay" methodname="LevelController_RespectsWaveStartDelay" classname="LevelControllerFunctionalTests" runstate="Runnable" seed="1681256136" result="Failed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.111389" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  A delayed wave should not have been created immediately.
+  Expected: False
+  But was:  True
+]]></message>
+            <stack-trace><![CDATA[at LevelControllerFunctionalTests+<LevelController_RespectsWaveStartDelay>d__10.MoveNext () [0x000a7] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Space Shooter Template FREE\Tests\PlayMode\Functional\LevelControllerFunctionalTests.cs:176
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1028" name="LevelController_UsesConfiguredPlanetSpeed" fullname="LevelControllerFunctionalTests.LevelController_UsesConfiguredPlanetSpeed" methodname="LevelController_UsesConfiguredPlanetSpeed" classname="LevelControllerFunctionalTests" runstate="Runnable" seed="88641791" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.008490" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1029" name="LevelController_UsesConfiguredPowerupInterval" fullname="LevelControllerFunctionalTests.LevelController_UsesConfiguredPowerupInterval" methodname="LevelController_UsesConfiguredPowerupInterval" classname="LevelControllerFunctionalTests" runstate="Runnable" seed="1373575501" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.007924" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1030" name="PlayerMovingFunctionalTests" fullname="PlayerMovingFunctionalTests" classname="PlayerMovingFunctionalTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.042354" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1031" name="PlayerMoving_CalculatesMovementBorders" fullname="PlayerMovingFunctionalTests.PlayerMoving_CalculatesMovementBorders" methodname="PlayerMoving_CalculatesMovementBorders" classname="PlayerMovingFunctionalTests" runstate="Runnable" seed="293293933" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.007749" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1033" name="PlayerMoving_ClampsMaximumX" fullname="PlayerMovingFunctionalTests.PlayerMoving_ClampsMaximumX" methodname="PlayerMoving_ClampsMaximumX" classname="PlayerMovingFunctionalTests" runstate="Runnable" seed="2141236352" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.007824" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1035" name="PlayerMoving_ClampsMaximumY" fullname="PlayerMovingFunctionalTests.PlayerMoving_ClampsMaximumY" methodname="PlayerMoving_ClampsMaximumY" classname="PlayerMovingFunctionalTests" runstate="Runnable" seed="699357496" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.007599" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1032" name="PlayerMoving_ClampsMinimumX" fullname="PlayerMovingFunctionalTests.PlayerMoving_ClampsMinimumX" methodname="PlayerMoving_ClampsMinimumX" classname="PlayerMovingFunctionalTests" runstate="Runnable" seed="867850195" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.007720" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1034" name="PlayerMoving_ClampsMinimumY" fullname="PlayerMovingFunctionalTests.PlayerMoving_ClampsMinimumY" methodname="PlayerMoving_ClampsMinimumY" classname="PlayerMovingFunctionalTests" runstate="Runnable" seed="1567089294" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.007633" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1061" name="PlayerRegressionTests" fullname="PlayerRegressionTests" classname="PlayerRegressionTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.018474" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1063" name="Player_GetDamage_DestroysPlayer" fullname="PlayerRegressionTests.Player_GetDamage_DestroysPlayer" methodname="Player_GetDamage_DestroysPlayer" classname="PlayerRegressionTests" runstate="Runnable" seed="687463373" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.007799" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1062" name="Player_Instance_IsAssigned" fullname="PlayerRegressionTests.Player_Instance_IsAssigned" methodname="Player_Instance_IsAssigned" classname="PlayerRegressionTests" runstate="Runnable" seed="2028204864" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.007759" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1036" name="PlayerShootingFunctionalTests" fullname="PlayerShootingFunctionalTests" classname="PlayerShootingFunctionalTests" runstate="Runnable" testcasecount="6" result="Failed" site="Child" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.059674" total="6" passed="2" failed="4" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1042" name="FireRate_ControlsNextFireTime" fullname="PlayerShootingFunctionalTests.FireRate_ControlsNextFireTime" methodname="FireRate_ControlsNextFireTime" classname="PlayerShootingFunctionalTests" runstate="Runnable" seed="933885915" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.010209" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1041" name="WeaponPower_IsLimitedToConfiguredMaximum" fullname="PlayerShootingFunctionalTests.WeaponPower_IsLimitedToConfiguredMaximum" methodname="WeaponPower_IsLimitedToConfiguredMaximum" classname="PlayerShootingFunctionalTests" runstate="Runnable" seed="1651724597" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.009971" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1037" name="WeaponPower1_CreatesOneProjectile" fullname="PlayerShootingFunctionalTests.WeaponPower1_CreatesOneProjectile" methodname="WeaponPower1_CreatesOneProjectile" classname="PlayerShootingFunctionalTests" runstate="Runnable" seed="85928725" result="Failed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.011036" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Weapon Power 1 should create exactly one projectile.
+  Expected: 1
+  But was:  2
+]]></message>
+            <stack-trace><![CDATA[at PlayerShootingFunctionalTests+<WeaponPower1_CreatesOneProjectile>d__7.MoveNext () [0x00063] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Space Shooter Template FREE\Tests\PlayMode\Functional\PlayerShootingFunctionalTests.cs:83
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1038" name="WeaponPower2_CreatesTwoProjectiles" fullname="PlayerShootingFunctionalTests.WeaponPower2_CreatesTwoProjectiles" methodname="WeaponPower2_CreatesTwoProjectiles" classname="PlayerShootingFunctionalTests" runstate="Runnable" seed="1701086565" result="Failed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.008276" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Weapon Power 2 should create exactly two projectiles.
+  Expected: 2
+  But was:  4
+]]></message>
+            <stack-trace><![CDATA[at PlayerShootingFunctionalTests+<WeaponPower2_CreatesTwoProjectiles>d__8.MoveNext () [0x00063] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Space Shooter Template FREE\Tests\PlayMode\Functional\PlayerShootingFunctionalTests.cs:107
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1039" name="WeaponPower3_CreatesThreeProjectiles" fullname="PlayerShootingFunctionalTests.WeaponPower3_CreatesThreeProjectiles" methodname="WeaponPower3_CreatesThreeProjectiles" classname="PlayerShootingFunctionalTests" runstate="Runnable" seed="383236499" result="Failed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.008378" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Weapon Power 3 should create exactly three projectiles.
+  Expected: 3
+  But was:  6
+]]></message>
+            <stack-trace><![CDATA[at PlayerShootingFunctionalTests+<WeaponPower3_CreatesThreeProjectiles>d__9.MoveNext () [0x00063] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Space Shooter Template FREE\Tests\PlayMode\Functional\PlayerShootingFunctionalTests.cs:131
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1040" name="WeaponPower4_CreatesSixProjectiles" fullname="PlayerShootingFunctionalTests.WeaponPower4_CreatesSixProjectiles" methodname="WeaponPower4_CreatesSixProjectiles" classname="PlayerShootingFunctionalTests" runstate="Runnable" seed="1474062443" result="Failed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.008058" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Weapon Power 4 should create exactly six projectiles.
+  Expected: 6
+  But was:  10
+]]></message>
+            <stack-trace><![CDATA[at PlayerShootingFunctionalTests+<WeaponPower4_CreatesSixProjectiles>d__10.MoveNext () [0x00063] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Space Shooter Template FREE\Tests\PlayMode\Functional\PlayerShootingFunctionalTests.cs:155
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1043" name="PoolingControllerFunctionalTests" fullname="PoolingControllerFunctionalTests" classname="PoolingControllerFunctionalTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.028174" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1046" name="GetPoolingObject_AddsObject_WhenPoolIsExhausted" fullname="PoolingControllerFunctionalTests.GetPoolingObject_AddsObject_WhenPoolIsExhausted" methodname="GetPoolingObject_AddsObject_WhenPoolIsExhausted" classname="PoolingControllerFunctionalTests" runstate="Runnable" seed="2075614348" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.009234" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1045" name="GetPoolingObject_ReturnsInactivePooledObject" fullname="PoolingControllerFunctionalTests.GetPoolingObject_ReturnsInactivePooledObject" methodname="GetPoolingObject_ReturnsInactivePooledObject" classname="PoolingControllerFunctionalTests" runstate="Runnable" seed="1544863360" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.008248" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1044" name="PoolingController_CreatesConfiguredInitialPool" fullname="PoolingControllerFunctionalTests.PoolingController_CreatesConfiguredInitialPool" methodname="PoolingController_CreatesConfiguredInitialPool" classname="PoolingControllerFunctionalTests" runstate="Runnable" seed="924408494" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.007553" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1047" name="ProjectileFunctionalTests" fullname="ProjectileFunctionalTests" classname="ProjectileFunctionalTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.049951" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1049" name="EnemyProjectile_DamagesPlayer" fullname="ProjectileFunctionalTests.EnemyProjectile_DamagesPlayer" methodname="EnemyProjectile_DamagesPlayer" classname="ProjectileFunctionalTests" runstate="Runnable" seed="741223003" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.007868" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1051" name="EnemyProjectile_DoesNotDamageEnemy" fullname="ProjectileFunctionalTests.EnemyProjectile_DoesNotDamageEnemy" methodname="EnemyProjectile_DoesNotDamageEnemy" classname="ProjectileFunctionalTests" runstate="Runnable" seed="1666474788" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.008088" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1048" name="PlayerProjectile_DamagesEnemy" fullname="ProjectileFunctionalTests.PlayerProjectile_DamagesEnemy" methodname="PlayerProjectile_DamagesEnemy" classname="ProjectileFunctionalTests" runstate="Runnable" seed="1483064397" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.007569" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1050" name="PlayerProjectile_DoesNotDamagePlayer" fullname="ProjectileFunctionalTests.PlayerProjectile_DoesNotDamagePlayer" methodname="PlayerProjectile_DoesNotDamagePlayer" classname="ProjectileFunctionalTests" runstate="Runnable" seed="1648077895" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.007593" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1052" name="Projectile_IsDestroyed_WhenDestroyedByCollisionIsTrue" fullname="ProjectileFunctionalTests.Projectile_IsDestroyed_WhenDestroyedByCollisionIsTrue" methodname="Projectile_IsDestroyed_WhenDestroyedByCollisionIsTrue" classname="ProjectileFunctionalTests" runstate="Runnable" seed="1517395315" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.007867" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1053" name="Projectile_Remains_WhenDestroyedByCollisionIsFalse" fullname="ProjectileFunctionalTests.Projectile_Remains_WhenDestroyedByCollisionIsFalse" methodname="Projectile_Remains_WhenDestroyedByCollisionIsFalse" classname="ProjectileFunctionalTests" runstate="Runnable" seed="961916498" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.007271" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1054" name="WaveFunctionalTests" fullname="WaveFunctionalTests" classname="WaveFunctionalTests" runstate="Runnable" testcasecount="6" result="Failed" site="Child" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:52Z" duration="1.262475" total="6" passed="2" failed="4" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1058" name="Wave_AppliesLoopSettingToFollowThePath" fullname="WaveFunctionalTests.Wave_AppliesLoopSettingToFollowThePath" methodname="Wave_AppliesLoopSettingToFollowThePath" classname="WaveFunctionalTests" runstate="Runnable" seed="1676174579" result="Failed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.210084" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: False
+  But was:  True
+]]></message>
+            <stack-trace><![CDATA[at WaveFunctionalTests+<Wave_AppliesLoopSettingToFollowThePath>d__11.MoveNext () [0x0005b] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Space Shooter Template FREE\Tests\PlayMode\Functional\WaveFunctionalTests.cs:181
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1059" name="Wave_AppliesPathToFollowThePath" fullname="WaveFunctionalTests.Wave_AppliesPathToFollowThePath" methodname="Wave_AppliesPathToFollowThePath" classname="WaveFunctionalTests" runstate="Runnable" seed="1502096107" result="Passed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:51Z" duration="0.208502" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1057" name="Wave_AppliesRotationSettingToFollowThePath" fullname="WaveFunctionalTests.Wave_AppliesRotationSettingToFollowThePath" methodname="Wave_AppliesRotationSettingToFollowThePath" classname="WaveFunctionalTests" runstate="Runnable" seed="2107789290" result="Failed" start-time="2026-08-19 20:12:51Z" end-time="2026-08-19 20:12:52Z" duration="0.209599" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: True
+  But was:  False
+]]></message>
+            <stack-trace><![CDATA[at WaveFunctionalTests+<Wave_AppliesRotationSettingToFollowThePath>d__10.MoveNext () [0x0005b] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Space Shooter Template FREE\Tests\PlayMode\Functional\WaveFunctionalTests.cs:164
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1060" name="Wave_AppliesShootingConfigurationToEnemy" fullname="WaveFunctionalTests.Wave_AppliesShootingConfigurationToEnemy" methodname="Wave_AppliesShootingConfigurationToEnemy" classname="WaveFunctionalTests" runstate="Runnable" seed="685199844" result="Failed" start-time="2026-08-19 20:12:52Z" end-time="2026-08-19 20:12:52Z" duration="0.211748" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: 65
+  But was:  75
+]]></message>
+            <stack-trace><![CDATA[at WaveFunctionalTests+<Wave_AppliesShootingConfigurationToEnemy>d__13.MoveNext () [0x00087] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Space Shooter Template FREE\Tests\PlayMode\Functional\WaveFunctionalTests.cs:223
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1056" name="Wave_AppliesSpeedToFollowThePath" fullname="WaveFunctionalTests.Wave_AppliesSpeedToFollowThePath" methodname="Wave_AppliesSpeedToFollowThePath" classname="WaveFunctionalTests" runstate="Runnable" seed="1108777300" result="Failed" start-time="2026-08-19 20:12:52Z" end-time="2026-08-19 20:12:52Z" duration="0.208200" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: 42.0f
+  But was:  25.0f
+]]></message>
+            <stack-trace><![CDATA[at WaveFunctionalTests+<Wave_AppliesSpeedToFollowThePath>d__9.MoveNext () [0x0006a] in C:\Users\User\Documents\GitHub\QA_SpaceShooter\Assets\Space Shooter Template FREE\Tests\PlayMode\Functional\WaveFunctionalTests.cs:145
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@5ac417e07314\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1055" name="Wave_SpawnsConfiguredEnemyCount" fullname="WaveFunctionalTests.Wave_SpawnsConfiguredEnemyCount" methodname="Wave_SpawnsConfiguredEnemyCount" classname="WaveFunctionalTests" runstate="Runnable" seed="526284650" result="Passed" start-time="2026-08-19 20:12:52Z" end-time="2026-08-19 20:12:52Z" duration="0.209748" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Saving results to: C:/Users/User/AppData/LocalLow/DefaultCompany/QA - Final\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
